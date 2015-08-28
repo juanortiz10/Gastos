@@ -1,15 +1,12 @@
 //Stylesheet creada por Juan Ortiz
 
-html{
-    background-color: #FDFDCA;
-}
-
 div.table_container{
 
 }
 
 div#main{
-  padding: 15%;
+  padding: 12%;
+  background-color: #FDFDCA;
 }
 
 div.toolbar{
@@ -28,6 +25,7 @@ img.icons{
   margin-top: 8px;
   margin-right: 15px;
 }
+
 table#main_table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -38,4 +36,9 @@ table#main_table{
 td.row{
   width: 100%;
   background-color: #F6F6F6;
+}
+
+td.row2{
+  width: 100%;
+  background-color: #FFF;
 }
