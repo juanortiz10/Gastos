@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+  padding: 5px;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -201,7 +201,7 @@ th {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   a[href]:after {
     content: " (" attr(href) ")";
@@ -1101,13 +1101,13 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #42382D;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #23527c;
-  text-decoration: underline;
+  color: #848484;
+  text-decoration: none;
 }
 a:focus {
   outline: thin dotted;
@@ -3333,7 +3333,7 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: transparent;
 }
 .btn-link[disabled]:hover,
