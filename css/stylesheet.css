@@ -18,7 +18,12 @@ div.toolbar{
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
-
+h2#title{
+  font-size: 2em;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  margin-top: 0%;
+}
 img.icons{
   float: right;
   width: 34px;
