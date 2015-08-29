@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 5px;
+  padding: 7%;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -1082,7 +1082,6 @@ th {
 }
 html {
   font-size: 10px;
-
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
