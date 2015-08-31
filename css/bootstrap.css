@@ -186,7 +186,7 @@ table {
 }
 td,
 th {
-  padding: 7%;
+  padding: 5%;
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -1089,7 +1089,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color:  #FDFDCA;
 }
 input,
 button,
