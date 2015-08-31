@@ -22,39 +22,46 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height" />
         <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
         <title>Pantalla de inicio</title>
     </head>
     <body>
         <div class="app">
           <div class="toolbar">
-            <a href="#"><img src="img/settings.png" alt="settings" class="icons"/></a></div>
-          <div class="container main">
+            <a href="#"><img src="icons/settings.png" alt="settings" class="icons"/></a>
+            <a href="#"><img src="icons/logo.png" alt="logo" class="logo" /></a>
+            </div>
+
+          <div id="main" class="container">
             <div class="row">
                   <div class="col-xs-6">
                     <ul class="no_lista table">
                       <li class="row2">saldo del mes</li>
-                      <li>Saldo acumulado del año</li>
+                      <li class="row2 resultados">$0.00</li>
+                      <li style="background-color: #fff;">Saldo acumulado del año</li>
+                      <li style="background-color: #fff;" class="resultados">$0.00</li>
                       <li class="row2">Patrimonio acumulado</li>
+                      <li class="row2 resultados">$0.00</li>
                     </ul>
                   </div>
                   <div class="col-xs-6">
                     <ul class="no_lista">
-                      <li><button type="button"  class="btn btn-info" value="ingeso">ingreso</li>
-                      <li><button type="button"  class="btn btn-info" value="egreso">egreso</li>
+                      <li><input type="button"  class="ingreso" value="ingreso"></li>
+                      <li><input type="button"  class="egreso" value="egreso"></li>
                     </ul>
                   </div>
             </div>
             <div class="row">
-              <ul class="no_lista inline-block">
-                <li class="col-xs-6 botonera1" >Saldo por cuentas</li>
-                <li class="col-xs-6 botonera2" >Ajustes</li>
-              </ul>
+              <div style="padding-left:14%; margin-top:30%;">
+                <ul class="no_lista inline-block">
+                  <li class="col-xs-7 botonera1" >Saldo por cuentas</li>
+                  <li class="col-xs-5 botonera2" >Ajustes</li>
+                </ul>
+              </div>
             </div>
         </div>
         </div>

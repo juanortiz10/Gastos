@@ -1,10 +1,9 @@
-//Stylesheet creada por Juan Ortiz
-
-div.table_container{
-
+html,body{
+  height: 100%;
+  width: 100%;
 }
-div.main{
-  padding-top: 15%;
+.container{
+  margin-top: 35%;
 }
 div#main{
   padding: 12%;
@@ -69,7 +68,7 @@ td.row2{
 }
 .no_lista{
   list-style:none;
-  font-size: 1.5em;
+  font-size: 1em;
   padding-left: 10%;
   text-align: center;
   }
@@ -80,10 +79,9 @@ td.row2{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     color: #fff;
-    margin-left:%;
     background-color:#424242;
     font-size:.7em;
-    width: 50%;
+    font-family: 'Anton', sans-serif;
   }
   .botonera2{
     border-top-right-radius: 20px;
@@ -92,5 +90,33 @@ td.row2{
     margin-right:15%;
     background-color:#424242;
     font-size:.7em;
-    width: 50%;
+    font-family: 'Anton', sans-serif;
+  }
+  .resultados{
+    text-align: right;
+    color: #00BFFF;
+    font-size: .9em;
+  }
+  .ingreso{
+   background: #04B431;
+   border-radius: 15px;
+   border: none;
+   font-family: 'Anton', sans-serif;
+   height: 5em;
+   margin-bottom: 10%;
+   color: #fff;
+   -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+   -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+  }
+  .egreso{
+    background: #FF0000;
+    color: #fff;
+    border-radius: 15px;
+    border: none;
+    font-family: 'Anton', sans-serif;
+    height: 5em;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
   }
