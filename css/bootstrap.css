@@ -186,7 +186,11 @@ table {
 }
 td,
 th {
+<<<<<<< HEAD
   padding: 7%;
+=======
+  padding: 5%;
+>>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 }
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 @media print {
@@ -1089,7 +1093,11 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
+<<<<<<< HEAD
   background-color: #fff;
+=======
+  background-color:  #FDFDCA;
+>>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 }
 input,
 button,
