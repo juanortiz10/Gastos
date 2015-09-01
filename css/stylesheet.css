@@ -1,32 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-html,body{
-  height: 100%;
-  width: 100%;
-}
-.container{
-  margin-top: 35%;
-}
-=======
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-//Stylesheet creada por Juan Ortiz
 
 div.table_container{
 
 }
-
-div.main{
-  padding-top: 15%;
-}
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-div#main{
-  padding: 12%;
-  background-color: #FDFDCA;
-
 
 div#main{
   padding: 12%;
@@ -44,18 +19,6 @@ div.toolbar{
 
 h2#title{
   font-size: 2em;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-  font-family: 'Anton', sans-serif;
-  text-align: center;
-  margin-top: 0%;
-}
-img.icons{
   text-align: center;
   font-family: 'Anton', sans-serif;
 }
@@ -67,45 +30,12 @@ img#settings{
   margin-right: 15px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-img.logo{
-  float: left;
-  width: 110px;
-  margin-top: 13px;
-  margin-left: 13px;
-}
-ul.table{
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  width:100%;
-  font-family: 'Anton', sans-serif;
-
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-=======
-
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 img#logo{
   float: left;
   width: 95px;
   margin-top: 17px;
   margin-left: 13px;
 }
-<<<<<<< HEAD
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 
 table#main_table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -123,81 +53,25 @@ td.row2{
   width: 100%;
   background-color: #FFF;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
-
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-.row2{
-  background-color: #F6F6F6;
-}
-.no_lista{
-  list-style:none;
-<<<<<<< HEAD
-  font-size: 1em;
-=======
-  font-size: 1.5em;
-
 .no_lista{
   list-style:none;
   font-size: 1em;
-<<<<<<< HEAD
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
-
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   padding-left: 10%;
   text-align: center;
   }
   li{
     margin-left: -11%;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    padding-bottom: 5%;
-    padding-right:10%;
-=======
-<<<<<<< HEAD
-=======
     padding-bottom: 5%;
     padding-right:10%;
     font-family: 'Anton', sans-serif;
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
-    padding-bottom: 5%;
-    padding-right:10%;
-    font-family: 'Anton', sans-serif;
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   }
   .botonera1{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     color: #fff;
-<<<<<<< HEAD
-<<<<<<< HEAD
     background-color:#424242;
     font-size:.7em;
     font-family: 'Anton', sans-serif;
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-    margin-left:%;
-    background-color:#424242;
-    font-size:.7em;
-    width: 50%;
-    background-color:#424242;
-    font-size:.7em;
-    font-family: 'Anton', sans-serif;
-<<<<<<< HEAD
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   }
   .botonera2{
     border-top-right-radius: 20px;
@@ -206,57 +80,11 @@ td.row2{
     margin-right:15%;
     background-color:#424242;
     font-size:.7em;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
-    width: 50%;
-  }
-
-
-	.alinear{
-		display:block;
-		margin:0 auto;
-}
-<<<<<<< HEAD
-=======
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
     font-family: 'Anton', sans-serif;
   }
   .resultados{
     text-align: right;
     color: #00BFFF;
-<<<<<<< HEAD
-    font-size: .9em;
-  }
-  .ingreso{
-   background: #04B431;
-   border-radius: 15px;
-   border: none;
-   font-family: 'Anton', sans-serif;
-   height: 5em;
-   margin-bottom: 10%;
-   color: #fff;
-   -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-   -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-   box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-  }
-  .egreso{
-    background: #FF0000;
-    color: #fff;
-    border-radius: 15px;
-    border: none;
-    font-family: 'Anton', sans-serif;
-    height: 5em;
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-  }
-=======
     font-size: 1em;
     background-color: white;
     padding: 4%;
@@ -286,9 +114,3 @@ td.row2{
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     width: 70px;
   }
-<<<<<<< HEAD
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
->>>>>>> 47741e64043b26eafab3845a712001befecacf6f
-=======
-
->>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
