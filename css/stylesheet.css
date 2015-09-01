@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 html,body{
   height: 100%;
   width: 100%;
@@ -10,13 +11,14 @@ html,body{
 <<<<<<< HEAD
 
 =======
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 //Stylesheet creada por Juan Ortiz
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 
 div.table_container{
 
 }
-<<<<<<< HEAD
+
 div.main{
   padding-top: 15%;
 }
@@ -24,12 +26,11 @@ div.main{
 div#main{
   padding: 12%;
   background-color: #FDFDCA;
-=======
+
 
 div#main{
   padding: 12%;
   padding-top: 5%;
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 }
 
 div.toolbar{
@@ -44,21 +45,22 @@ div.toolbar{
 h2#title{
   font-size: 2em;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   font-family: 'Anton', sans-serif;
   text-align: center;
   margin-top: 0%;
 }
 img.icons{
-=======
   text-align: center;
   font-family: 'Anton', sans-serif;
 }
 
 img#settings{
->>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
   float: right;
   width: 34px;
   margin-top: 8px;
@@ -66,9 +68,12 @@ img#settings{
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 img.logo{
   float: left;
   width: 110px;
@@ -84,16 +89,23 @@ ul.table{
 
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 img#logo{
   float: left;
   width: 95px;
   margin-top: 17px;
   margin-left: 13px;
 }
+<<<<<<< HEAD
 >>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 
 table#main_table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -112,9 +124,13 @@ td.row2{
   background-color: #FFF;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
 .row2{
   background-color: #F6F6F6;
 }
@@ -124,18 +140,23 @@ td.row2{
   font-size: 1em;
 =======
   font-size: 1.5em;
-=======
+
 .no_lista{
   list-style:none;
   font-size: 1em;
+<<<<<<< HEAD
 >>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   padding-left: 10%;
   text-align: center;
   }
   li{
     margin-left: -11%;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding-bottom: 5%;
     padding-right:10%;
 =======
@@ -146,27 +167,37 @@ td.row2{
     font-family: 'Anton', sans-serif;
 >>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+    padding-bottom: 5%;
+    padding-right:10%;
+    font-family: 'Anton', sans-serif;
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   }
   .botonera1{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     color: #fff;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color:#424242;
     font-size:.7em;
     font-family: 'Anton', sans-serif;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
     margin-left:%;
     background-color:#424242;
     font-size:.7em;
     width: 50%;
-=======
     background-color:#424242;
     font-size:.7em;
     font-family: 'Anton', sans-serif;
+<<<<<<< HEAD
 >>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
   }
   .botonera2{
     border-top-right-radius: 20px;
@@ -176,8 +207,11 @@ td.row2{
     background-color:#424242;
     font-size:.7em;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
     width: 50%;
   }
 
@@ -186,8 +220,11 @@ td.row2{
 		display:block;
 		margin:0 auto;
 }
+<<<<<<< HEAD
 =======
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
     font-family: 'Anton', sans-serif;
   }
   .resultados{
@@ -249,5 +286,9 @@ td.row2{
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     width: 70px;
   }
+<<<<<<< HEAD
 >>>>>>> 4e65cfb17ab56e38e8e51e938a9eb06e5057245d
 >>>>>>> 47741e64043b26eafab3845a712001befecacf6f
+=======
+
+>>>>>>> f44814e563033d0c9eca99a2918e57aa318f1586
