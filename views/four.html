@@ -33,32 +33,24 @@
     <body>
         <div class="app" style="background-color: #FDFDCA" >
           <div class="toolbar">
-            <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-            <a href="#"><img src="../icons/settings.png" alt="set" id="settings" /></a>
-          </div>
+           	<a href="#"><img src="../icons/logo.png" alt="logo" class="logo" /></a>
+           	<a href="#"><img src="../icons/settings.png" alt="settings" class="icons" /></a></div>
           <div class="container main">
-            <div class="row">
-                  <div class="col-xs-10">
-                    <br>
-                    <b class="alinear">Idioma</b>
-                    <input type="radio" name="idioma1" value="idioma1">Ingles&nbsp;&nbsp;
-                    <br>
-                    <input type="radio" name="idioma2" value="idioma2">Español
-                   </br>
-                    <br>
-                    <b class="alinear">Agregar cuenta ingreso</b>
-                    <input type="text" name="ingreso" />
-                    <input type="submit" value="Agregar">
-                   <br>
-                    <b class="alinear">Agregar cuenta egreso&nbsp;</b>
-                    <input type="text" name="egreso" />
-                    <input type="submit" value="Agregar" />
-                   </br>
-                   <b class="alinear">Inicial&nbsp;&nbsp;&nbsp;</b><input type="text" name="Inicial" />
-                   </br>
-                  </div>
-            </div>
+         <h2 id="title">Ajustes</h2>
+         <div class="table_container">
+            <table id="main_table" >
+                <tr><td class="row"><a href="#"><b>Idioma</b><br /> <input type="radio" name="idioma1" value="idioma1">Español&nbsp;&nbsp;<input type="radio" name="idioma2" value="idioma2">Ingles</a></td></tr>
+                <tr><td class="row2"><a href="#"><b>Agregar cuenta ingreso</b></a><br /><input type="text" name="ingreso" /><input type="submit" value="Agregar"></td></tr>
+                <tr><td class="row"><a href="#"><b>Agregar cuenta egreso</b></a><br /><input type="text" name="egreso" /><input type="submit" value="Agregar"></a></td></tr>
+                <tr><td class="row2"><a href="#"><b>Inicial</b><br /></a><input type="text" name="Inicial" /></td></tr>
+            </table>
         </div>
         </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
     </body>
 </html>
