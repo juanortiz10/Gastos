@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html,body,{
   width: 100%;
   height: 100%;
@@ -17,6 +18,17 @@ div#main{
   padding: 12%;
   background-color: #FDFDCA;
 }
+=======
+
+div.table_container{
+}
+
+div#main{
+  padding: 12%;
+  padding-top: 5%;
+}
+
+>>>>>>> d3599741e0b2e7ba2a75779b711b4c5fdbb91f7a
 div.toolbar{
   width: 100%;
   height: 50px;
@@ -28,11 +40,14 @@ div.toolbar{
 
 h2#title{
   font-size: 2em;
+<<<<<<< HEAD
   font-family: 'Anton', sans-serif;
   text-align: center;
   margin-top: 0%;
 }
 img.icons{
+=======
+>>>>>>> d3599741e0b2e7ba2a75779b711b4c5fdbb91f7a
   text-align: center;
   font-family: 'Anton', sans-serif;
 }
@@ -44,6 +59,7 @@ img#settings{
   margin-right: 15px;
 }
 
+<<<<<<< HEAD
 img.logo{
   float: left;
   width: 110px;
@@ -59,6 +75,8 @@ ul.table{
 
 }
 
+=======
+>>>>>>> d3599741e0b2e7ba2a75779b711b4c5fdbb91f7a
 img#logo{
   float: left;
   width: 95px;
@@ -66,6 +84,15 @@ img#logo{
   margin-left: 13px;
 }
 
+<<<<<<< HEAD
+=======
+input.inputs{
+  display: block;
+  margin: 0 auto;
+  padding: 4%;
+}
+
+>>>>>>> d3599741e0b2e7ba2a75779b711b4c5fdbb91f7a
 table#main_table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -82,6 +109,7 @@ td.row2{
   width: 100%;
   background-color: #FFF;
 }
+<<<<<<< HEAD
 
 .row2{
   background-color: #F6F6F6;
@@ -90,6 +118,11 @@ td.row2{
 .no_lista{
   list-style:none;
   font-size: 1.2em;
+=======
+.no_lista{
+  list-style:none;
+  font-size: 1em;
+>>>>>>> d3599741e0b2e7ba2a75779b711b4c5fdbb91f7a
   padding-left: 10%;
   text-align: center;
   }
@@ -104,27 +137,19 @@ td.row2{
     border-bottom-left-radius: 20px;
     color: #fff;
     background-color:#424242;
-    font-size:1.1em;
-    text-align: left;
-    padding-top: 5%;
-    padding-left: 5%
+    font-size:.7em;
+    font-family: 'Anton', sans-serif;
+
   }
   .botonera2{
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     color: #fff;
+    margin-right:15%;
     background-color:#424242;
-    font-size:1.1em;
-    text-align: center;
-    padding-top: 5%;
+    font-size:.7em;
+    font-family: 'Anton', sans-serif;
   }
-
-
-	.alinear{
-		display:block;
-		margin:0 auto;
-}
-
   .resultados{
     text-align: right;
     color: #00BFFF;
@@ -137,9 +162,9 @@ td.row2{
    border-radius:9px;
    border: none;
    font-family: 'Anton', sans-serif;
-   height: 120px;
-   width: 110px;
-   margin-bottom: 50%;
+   height: 65px;
+   width: 70px;
+   margin-bottom: 10%;
    color: #fff;
    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
@@ -151,9 +176,16 @@ td.row2{
     border-radius: 9px;
     border: medium none;
     font-family: "Anton",sans-serif;
-    height: 120px;
-    width: 110px;
+    height: 65px;
     -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    width: 70px;
   }
+
+
+  @media (min-width: 768px) {
+    .table_container{
+      margin-top: 7%;
+      }
+    }
