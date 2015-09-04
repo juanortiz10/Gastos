@@ -28,37 +28,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+        <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'/>
         <title>Pantalla de ajustes</title>
     </head>
     <body>
         <div class="app" style="background-color: #FDFDCA" >
           <div class="toolbar">
-            <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-            <a href="#"><img src="../icons/settings.png" alt="set" id="settings" /></a>
-          </div>
+           	<a href="#"><img src="../icons/logo.png" alt="logo" id="logo"/></a>
+           	<a href="#"><img src="../icons/settings.png" alt="settings" id="settings" /></a>
+           	</div>
           <div class="container main">
-            <div class="row">
-                  <div class="col-xs-10">
-                    <br>
-                    <b class="alinear">Idioma</b>
-                    <input type="radio" name="idioma1" value="idioma1">Ingles&nbsp;&nbsp;
-                    <br>
-                    <input type="radio" name="idioma2" value="idioma2">Español
-                   </br>
-                    <br>
-                    <b class="alinear">Agregar cuenta ingreso</b>
-                    <input type="text" name="ingreso" />
-                    <input type="submit" value="Agregar">
-                   <br>
-                    <b class="alinear">Agregar cuenta egreso&nbsp;</b>
-                    <input type="text" name="egreso" />
-                    <input type="submit" value="Agregar" />
-                   </br>
-                   <b class="alinear">Inicial&nbsp;&nbsp;&nbsp;</b><input type="text" name="Inicial" />
-                   </br>
-                  </div>
-            </div>
+         <h2 id="title" style="font-family: 'Anton',sans-serif">Ajustes</h2>
+         <div class="table_container">
+            <table id="main_table">
+                <tr><td class="row" align="center"><a href="#"><label for="usr"  style="font-family: 'Anton',sans-serif">Idioma</label><br /><label class="checkbox-inline" style="font-family: 'Anton',sans-serif"><input type="checkbox" value="Español">Español</label><label class="checkbox-inline" style="font-family: 'Anton',sans-serif"><input type="checkbox" value="Ingles">Ingles</label></a></td></tr>
+                <tr><td class="row2" align="center"><a href="#"><label for="usr" style="font-family: 'Anton',sans-serif">Agregar Cuenta Egreso:</label></a><br /><input type="text" class="form-control"  name="ingreso" /><br /><button type="button" class="btn btn-success" style="font-family: 'Anton',sans-serif" value="Agregar">Agregar</button></td></tr>
+                <tr><td class="row" align="center"><a href="#"><label for="usr"  style="font-family: 'Anton',sans-serif">Agregar Cuenta Egreso:</label></a><br /><input type="text" class="form-control" name="egreso" /><br /><button type="button" class="btn btn-success" style="font-family: 'Anton',sans-serif" value="Agregar">Agregar</button></td></tr>
+                <tr><td class="row2" align="center"><a href="#"><label for="usr" style="font-family: 'Anton',sans-serif"S>Inicial:</label><br /></a><input type="text" class="form-control" name="Inicial" /><br /></td></tr>
+            </table>
         </div>
         </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
     </body>
 </html>
