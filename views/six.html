@@ -14,19 +14,14 @@
       <a href="#"><img src="../icons/settings.png" alt="set" id="settings" /></a>
     </div>
       <div class="container" id="main">
-        <h2 id="title">Categorias</h2>
-        <div class="table_container">
-            <table id="main_table" >
-                <tr><td class="row"><a href="#">Sueldos</a></td></tr>
-                <tr><td class="row2"><a href="#">Negocios</a></td></tr>
-                <tr><td class="row"><a href="#">Pensiones</a></td></tr>
-                <tr><td class="row2"><a href="#">Rentas</a></td></tr>
-                <tr><td class="row"><a href="#">Prestamos</a></td></tr>
-                <tr><td class="row2"><a href="#">Dividendos</a></td></tr>
-                <tr><td class="row"><a href="#">Domingos</a></td></tr>
-                <tr><td class="row2"><a href="#">Mesadas</a></td></tr>
-                <tr><td class="row"><a href="#">Otros</a></td></tr>
-                <tr><td class="row2"><a href="#">Agregar Nueva Categoria</a></td></tr>
+        <div class="table_container" style="position: absolute;left: 50%;top: 50%;width: 60%;transform: translate(-50%, -50%);">
+          <h2 id="title">Categoria</h2>
+            <table border=1 rules=none frame=box id="main_table" style="border: 5px solid red">
+                <tr><td class="row" style="text-align: center;">Sueldo Actual de la cuenta</td></tr>
+                <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs"></td></tr>
+                <tr><td class="row"  style="text-align: center;">Monto a ingresar</td></tr>
+                <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-danger" style="border-radius:5px;"></td></tr>
             </table>
         </div>
       </div>
