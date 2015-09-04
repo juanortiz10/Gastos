@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html,body,{
   width: 100%;
   height: 100%;
@@ -65,12 +64,6 @@ img#logo{
   width: 95px;
   margin-top: 17px;
   margin-left: 13px;
-}
-
-input.inputs{
-  display: block;
-  margin: 0 auto;
-  padding: 4%;
 }
 
 table#main_table{
