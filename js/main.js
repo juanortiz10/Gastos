@@ -1,8 +1,5 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 var db;
-var saldo_m = document.getElementById('saldo_m');
-var saldo_aca = document.getElementById('saldo_aca');
-var patrimonio = document.getElementById('patrimonio');
 function onDeviceReady(){
   db = window.sqlitePlugin.openDatabase({name:"tp1.db"});
 
@@ -22,17 +19,6 @@ function (error) {
 },
 function (succes) {
   alert("inserId: "+ res.insertId + "-- probably 1")
-});
-});
-
-db.transaction(function (tx) {
-  tx.executeSql("select * from test_table;", [], function (tx,res) {
-  saldo_m.innerHTML = res.rows.item(0).saldo_m;
-  saldo_aca.innerHTML = res.rows.item(0).saldo_aca;
-  patrimonio.innerHTML =  res.rows.item(0).patrimonio;
-  alert(res);
-},function (error) {
-  alert("Error al realizar la petcicion")
 });
 });
 }
