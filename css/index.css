@@ -99,6 +99,9 @@ td.row2{
     padding-right:10%;
     font-family: 'Anton', sans-serif;
   }
+  ul li a{
+    color: white;
+  }
   .botonera1{
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;

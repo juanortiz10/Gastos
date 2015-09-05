@@ -81,3 +81,33 @@ function (succes) {
   alert("Error al realizar la petcicion")
 });
 });*/
+
+//El reven starts checale lo que hice mero arriba, si no en el main .js 
+function insertarIngresos(id){
+  var nombre = document.getElementById('saldo_agregar').value;
+
+  db.transaction(function(tx) {
+    tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], correct, errorCB);
+    tx.executeSql("UPDATE cta SET saldo = saldo + ?",[saldo_agregar], correct, errorCB);
+  });
+}
+
+function insertarEgresos(id) {
+  var nombre = document.getElementById('saldo_agregar').value;
+
+  db.transaction(function(tx) {
+    tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_categoria_egreso) VALUES (?,?)",[saldo_agregar, id], correct, errorCB);
+    tx.executeSql("UPDATE cta SET saldo = saldo - ?",[saldo_agregar], correct, errorCB);
+  });
+}
+
+function getSaldo() {
+  db.transaction(function(tx) {
+    tx.executeSql("SELECT saldo FROM cta",+[], function (tx, res) {
+      document.getElementById().value = res.rows.item(0).saldo
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
+//El reven ends

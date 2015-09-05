@@ -36,48 +36,26 @@
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
          });
     }
+//Juan Ortiz starts
 
-
-
-/*document.addEventListener("deviceready", onDeviceReady, false);
-var db;
-var saldo_m = document.getElementById('saldo_m');
-var saldo_aca = document.getElementById('saldo_aca');
-var patrimonio = document.getElementById('patrimonio');
-function onDeviceReady(){
-db = window.sqlitePlugin.openDatabase({name:"tp1.db"});
-console.log(db);
-db.transaction(function (tx) {
-  tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text)');
-  tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text)');
-  tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
-  tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
-  tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
-},
-function (error) {
-  alert("Error en crear la tabla")
-});
-
+function insertarCategoriaIngreso(nombre){
+    db.transaction(function(tx){
+      tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES(?) ',nombre,correct,errorCB);
+    });
 }
-/*
-db.transaction(function(tx) {
-  tx.executeSql("INSERT INTO test_table(saldo_m,saldo_aca, patrimonio) VALUES (?,?,?)",[1000,2000,3000],function (tx,res) {
-  },
-function (error) {
-  alert("Error al insertar un dato")
-},
-function (succes) {
-  alert("inserId: "+ res.insertId + "-- probably 1")
-});
-});
-*/
-/*db.transaction(function (tx) {
-  tx.executeSql("select * from test_table;", [], function (tx,res) {
-  saldo_m.innerHTML = res.rows.item(0).saldo_m;
-  saldo_aca.innerHTML = res.rows.item(0).saldo_aca;
-  patrimonio.innerHTML =  res.rows.item(0).patrimonio;
-  alert(res);
-},function (error) {
-  alert("Error al realizar la petcicion")
-});
-});*/
+
+function cargarCategoriasIngreso(){
+ if (!window.openDatabase) {
+   alert('Databases are not supported in this browser.');
+   return;
+ }
+
+    db.transaction(function(tx) {
+        tx.executeSql('SELECT id_categoria_ingreso,nombre_categoria_ingreso FROM categorias_ingreso',[], querySuccessIng, errorCB);
+    });
+}
+
+function sendId(id_categoria){
+  sessionStorage.setItem("id_categoria",id_categoria);  
+}
+//Ends Juan Ortiz
