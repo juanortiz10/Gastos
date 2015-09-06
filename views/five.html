@@ -3,32 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/juan2.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
-    <title>Pantalla 2</title>
   </head>
   <body>
       <div class="toolbar">
         <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-        <a href="#"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+        <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
       </div>
       <div class="container" id="main">
         <h2 id="title">Categorias</h2>
         <div class="table_container">
-            <table id="main_table" >
-                <tr><td class="row"><a href="#">Sueldos</a></td></tr>
-                <tr><td class="row2"><a href="#">Negocios</a></td></tr>
-                <tr><td class="row"><a href="#">Pensiones</a></td></tr>
-                <tr><td class="row2"><a href="#">Rentas</a></td></tr>
-                <tr><td class="row"><a href="#">Prestamos</a></td></tr>
-                <tr><td class="row2"><a href="#">Dividendos</a></td></tr>
-                <tr><td class="row"><a href="#">Domingos</a></td></tr>
-                <tr><td class="row2"><a href="#">Mesadas</a></td></tr>
-                <tr><td class="row"><a href="#">Otros</a></td></tr>
-                <tr><td class="row2"><a href="#">Agregar Categoria</a></td></tr>
+           <table id="main_table" >
+            <tr><td class="row"><a onclick="agregarCategoria();">Agregar una nueva categoria</a></td></tr>
             </table>
         </div>
       </div>
+    <script type="text/javascript">
+            app.initialize();
+    </script>
   </body>
 </html>
