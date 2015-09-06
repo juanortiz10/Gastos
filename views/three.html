@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../js/reven.js"></script>
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <title>Pantalla 3</title>
@@ -21,10 +22,9 @@
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" disabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Monto a ingresar</td></tr>
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-success" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria'))"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-success" style="border-radius:5px;" onclick="insertarIngresos(sessionStorage.getItem('id_categoria'))"></td></tr>
             </table>
         </div>
       </div>
   </body>
-  <script type="text/javascript" src="../js/reven.js"></script>
 </html>
