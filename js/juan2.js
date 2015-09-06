@@ -23,13 +23,13 @@
     }
  
     function queryDB(tx){
-        tx.executeSql('SELECT id_categoria_ingreso,nombre_categoria_ingreso FROM categorias_ingreso',[],querySuccess,errorCB);
+        tx.executeSql('SELECT id_categoria_egreso,nombre_categoria_egreso FROM categorias_egreso',[],querySuccess,errorCB);
     }
  
     function querySuccess(tx,result){
          $.each(result.rows,function(index){
            var row = result.rows.item(index);
-          $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
+          $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
          });
     }
     //Agregar categoria, se acciona cuando el usuario da clic sobre la fila de agregar
@@ -42,7 +42,7 @@
         function(results){
             nombre=results.input1;
             dba.transaction(function(tx){
-                tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
+                tx.executeSql('INSERT INTO categorias_egreso(nombre_categoria_egreso) VALUES("'+nombre+'") ');
                 window.location.reload();
             }, errorCB, successCB);
         }, 'Categorias', ['Ok','Cancelar']);
@@ -51,4 +51,3 @@
 function sendId(id_categoria){
   sessionStorage.setItem("id_categoria",id_categoria);  
 }
-//Ends Juan Ortiz
