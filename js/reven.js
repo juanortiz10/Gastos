@@ -38,10 +38,31 @@ function insertarIngresos(id){
   });
 }
 
+function getTitleIngresos(id){
+  var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  dba.transaction(function(tx) {
+    tx.executeSql("SELECT nombre_categoria_ingreso  FROM categorias_ingreso where id_categoria_ingreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_ingreso;
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
+
+function getTitleEgresos(id){
+  var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  dba.transaction(function(tx) {
+    tx.executeSql("SELECT nombre_categoria_egreso  FROM categorias_egreso where id_categoria_egreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_egreso;
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
+
 function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
-
   dba.transaction(function(tx) {
     tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
     tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <title>Pantalla 6</title>
   </head>
-  <body onload="getSaldo()">
+  <body onload="getSaldo(); getTitleEgresos(sessionStorage.getItem('id_categoria'));">
     <div class="toolbar">
       <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
       <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
