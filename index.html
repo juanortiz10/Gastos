@@ -8,11 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
         <title>Pantalla de inicio</title>
-        <script type="text/javascript" src="cordova.js"></script>
+      <!--  <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript">
             app.initialize();
+<<<<<<< HEAD
         </script>
         <script type="text/javascript">
 
@@ -33,11 +34,14 @@
           });
         }
         </script>
+=======
+        </script>-->
+>>>>>>> f74d3ed8e9a82721c50e296e6e5c849d2b535f12
     </head>
     <body>
         <div class="app">
           <div class="toolbar">
-            <a href="#"><img src="icons/settings.png" alt="settings" id="settings"/></a>
+            <a href="../www/views/four.html"><img src="icons/settings.png" alt="settings" id="settings"/></a>
             <a href="#"><img src="icons/logo.png" alt="logo" id="logo" /></a>
             </div>
 
@@ -55,16 +59,16 @@
                   </div>
                   <div class="col-xs-4" style="margin-top: 15%;">
                     <ul class="no_lista">
-                      <li><input type="button"  class="ingreso" value="ingreso"></li>
-                      <li><input type="button"  class="egreso" value="egreso"></li>
+                      <li><input type="button"  class="ingreso" value="ingreso" onclick="window.location.href='../www/views/two.html'"></li>
+                      <li><input type="button"  class="egreso" value="egreso" onclick="window.location.href='../www/views/five.html'"></li>
                     </ul>
                   </div>
             </div>
             <div class="row botonera">
-              <div style=" margin-left:0%; width: 140%; margin-top:30%; col-xs-12" >
+              <div style=" margin-left:0%; width: 140%; margin-top:10%; col-xs-12" >
                 <ul class="no_lista inline-block">
                   <li class="col-xs-7 botonera1" >Saldo por cuentas</li>
-                  <li class="col-xs-5 botonera2" >Ajustes</li>
+                  <li class="col-xs-5 botonera2" ><a href="../www/views/four.html">Ajustes</a></li>
                 </ul>
               </div>
             </div>
