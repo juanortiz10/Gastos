@@ -32,7 +32,7 @@
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
         });
     }
-    
+
     //Agregar categoria, se acciona cuando el usuario da clic sobre la fila de agregar
     function agregarCategoria(){
           var nombre;

@@ -28,7 +28,7 @@
     function querySuccess(tx,result){
          $.each(result.rows,function(index){
            var row = result.rows.item(index);
-          $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
+          $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
         });
     }
 

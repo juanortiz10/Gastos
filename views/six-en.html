@@ -15,26 +15,24 @@
     </div>
       <div class="container" id="main">
         <div class="table_container" style="position: absolute;left: 50%;top: 50%;width: 65%;transform: translate(-50%, -50%);">
-          <h2 id="title">Categoria</h2>
-            <table border=1 rules=none frame=box id="main_table" style="border: 5px solid #87E075">
+          <h2 id="title">Category</h2>
+            <table border=1 rules=none frame=box id="main_table" style="border: 5px solid #E37474">
                 <tr><td class="row" style="text-align: center;">Current account balance</td></tr>
-                <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" diabled></td></tr>
+                <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" disabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Amount to enter</td></tr>
-                <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="Add" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria')); redirectIndex();"></td></tr>
+                <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="Add" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();"></td></tr>
             </table>
         </div>
       </div>
   </body>
   <script type="text/javascript" src="../js/reven.js"></script>
-  <script type="text/javascript" charset="utf-8">
-
-    function redirectIndex(){
-        navigator.notification.vibrate(60000000);
-        navigator.notification.alert("Amount Added", redirect(), "Success", "OK");
+  <script type="text/javascript">
+  function redirect(){
+       window.location.replace("../index-en.html")
     }
-
-    function redirect(){
-       window.location.href("../index.html");
-    }
+  function showNotification(){
+    navigator.notification.alert("Amount Added",redirect,"Success!", "Ok");
+  }
+    </script>
 </html>
