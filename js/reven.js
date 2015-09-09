@@ -16,6 +16,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     }
     //create table and insert some record
     function populateDB(tx) {
+      console.log("POPULATE DB");
         tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text)');
         tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
@@ -64,7 +65,7 @@ function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
+    tx.executeSql("INSERT INTO saldos_egresos(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
     tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
     getSaldo();
   });
@@ -72,8 +73,11 @@ function insertarEgresos(id) {
 
 function getSaldo() {
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  console.log("i Entered first");
   dba.transaction(function(tx) {
-    tx.executeSql("SELECT *  FROM cta where id_cuenta_in = 1",[], function (tx, res) {
+    tx.executeSql('INSERT INTO cta (nombre, saldo) VALUES ("Dieginho",1000)');
+    tx.executeSql("SELECT *  FROM cta",[], function (tx, res) {
+      console.log("i entered sekond");
       document.getElementById('saldo').value = res.rows.item(0).saldo;
     },function (error) {
       alert("Error al realizar la petcicion")
