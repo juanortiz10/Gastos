@@ -36,7 +36,7 @@
   $('#list').listview();*/
 
          $.each(result.rows,function(index){
-           var row = result.rows.item(1);
+           var row = result.rows.item(0);
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
         });
     }
