@@ -73,7 +73,7 @@ function insertarEgresos(id) {
 function getSaldo() {
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql("SELECT *  FROM cta where id_cuenta_in = 1",[], function (tx, res) {
+    tx.executeSql("SELECT saldo  FROM cta where id_cuenta_in = 1",[], function (tx, res) {
       document.getElementById('saldo').value = res.rows.item(0).saldo;
     },function (error) {
       alert("Error al realizar la petcicion")

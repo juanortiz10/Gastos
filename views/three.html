@@ -27,4 +27,15 @@
         </div>
       </div>
   </body>
+  <script type="text/javascript" charset="utf-8">
+
+    function redirectIndex(){
+        navigator.notification.vibrate(60000000);
+        navigator.notification.alert("Monto agregado", redirect(), "Correcto", "OK");
+    }
+
+    function redirect(){
+       window.location.href("../index.html");
+    }
+  </script>
 </html>
