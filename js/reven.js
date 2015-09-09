@@ -1,15 +1,15 @@
- document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady, false);
     var db = window.openDatabase("gastos", "1.0", "local database", 200000); //will create database Dummy_DB or open it
- 
+
     //function will be called when device ready
     function onDeviceReady(){
         db.transaction(populateDB, errorCB, successCB);
     }
- 
+
     function errorCB(err) {
         console.log("Error processing SQL: "+err.code);
     }
- 
+
     //function will be called when process succeed
     function successCB() {
         console.log("success!");
@@ -22,11 +22,11 @@
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
     }
- 
+
     //function will be called when an error occurred
- 
- 
-//El reven starts checale lo que hice mero arriba, si no en el main .js 
+
+
+//El reven starts checale lo que hice mero arriba, si no en el main .js
 function insertarIngresos(id){
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
@@ -38,10 +38,31 @@ function insertarIngresos(id){
   });
 }
 
+function getTitleIngresos(id){
+  var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  dba.transaction(function(tx) {
+    tx.executeSql("SELECT nombre_categoria_ingreso  FROM categorias_ingreso where id_categoria_ingreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_ingreso;
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
+
+function getTitleEgresos(id){
+  var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  dba.transaction(function(tx) {
+    tx.executeSql("SELECT nombre_categoria_egreso  FROM categorias_egreso where id_categoria_egreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_egreso;
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
+
 function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
-
   dba.transaction(function(tx) {
     tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
     tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
