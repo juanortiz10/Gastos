@@ -27,8 +27,16 @@
     }
 
     function querySuccess(tx,result){
+
+    /*  $('#list').empty();
+  $.each(result.rows,function(index){
+      var row = result.rows.item(50);
+      $('#list').append('<li><a href="#"><h3 class="ui-li-heading">'+row['nombre_categoria_ingreso']+'</h3><p class="ui-li-desc">Id '+row['id_categoria_ingreso']+'</p></a></li>');
+  });
+  $('#list').listview();*/
+
          $.each(result.rows,function(index){
-           var row = result.rows.item(index);
+           var row = result.rows.item(1);
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
         });
     }

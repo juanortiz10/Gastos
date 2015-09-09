@@ -8,12 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
         <title>Pantalla de inicio</title>
-      <!--  <script type="text/javascript" src="cordova.js"></script>
+       <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/pon.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>-->
+        </script>
     </head>
     <body>
         <div class="app">
@@ -25,7 +25,7 @@
           <div id="main" class="container">
             <div class="row botonera">
                   <div class="col-xs-8" style="margin-top: 15%;">
-                    <ul class="no_lista table">
+                    <ul class="no_lista table" onLoad="select();">
                       <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; ">saldo del mes</li>
                       <li class="row2 resultados" id="saldo_m">$0.00</li>
                       <li style="background-color: #F6F6F6; padding: 6%;">Saldo acumulado del año</li>
