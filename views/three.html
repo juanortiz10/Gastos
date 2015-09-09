@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
     <title>Pantalla 6</title>
   </head>
-  <body onload="getSaldo(); getTitleEgresos(sessionStorage.getItem('id_categoria'));">
+  <body onload="getSaldo(); getTitleIngresos(sessionStorage.getItem('id_categoria'));">
     <div class="toolbar">
       <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
       <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
@@ -22,10 +22,20 @@
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" diabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Monto a ingresar</td></tr>
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria'))"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-success" style="border-radius:5px;" onclick="insertarIngresos(sessionStorage.getItem('id_categoria')); redirectIndex();"></td></tr>
             </table>
         </div>
       </div>
   </body>
   <script type="text/javascript" src="../js/reven.js"></script>
+  <script type="text/javascript" charset="utf-8">
+
+    function redirectIndex(){
+        navigator.notification.vibrate(60000000);
+        navigator.notification.alert("Monto agregado", redirect(), "Correcto", "OK");
+    }
+
+    function redirect(){
+       window.location.href("../index.html");
+    }
 </html>
