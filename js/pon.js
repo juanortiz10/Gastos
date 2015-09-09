@@ -39,6 +39,7 @@
             egreso = Number(res.rows.item(0).egresado);
             document.getElementById('saldo_m').innerHTML = "$ " + (ingreso - egreso);
             selectAca();
+            selectPat();
           });
         });
       });
@@ -58,6 +59,22 @@
             egreso = Number(res.rows.item(0).egresado);
             console.log("Egresos "+ egreso);
             document.getElementById('saldo_aca').innerHTML = "$ " + (ingreso - egreso);
+          });
+        });
+      });
+    }
+    function selectPat(){
+      var ingreso;
+      var egreso= 0;
+      db.transaction(function(tx) {
+        console.log("***************************************************");
+        tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso", [], function(tx,res) {
+          ingreso = Number(res.rows.item(0).ingreso);
+          console.log("Ingrsos "+ingreso);
+          tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso", [], function(tx,res) {
+            egreso = Number(res.rows.item(0).egresado);
+            console.log("Egresos "+ egreso);
+            document.getElementById('patrimonio').innerHTML = "$ " + (ingreso - egreso);
           });
         });
       });
