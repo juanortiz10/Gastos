@@ -65,7 +65,7 @@ function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql("INSERT INTO saldos_egresos(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
+    tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_categoria_egreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
     tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
     getSaldo();
   });
