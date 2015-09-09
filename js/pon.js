@@ -27,10 +27,16 @@
     }
 
     function select() {
+      var ingreso;
+      var egreso= 0;
       db.transaction(function(tx) {
         tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso", [], function(tx,res) {
-
-          saldo_m.innerHTML = res.rows.item(0).ingreso;
+          ingreso = Number(res.rows.item(0).ingreso);
+          tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso", [], function(tx,res) {
+            egreso = Number(res.rows.item(0).egresado);
+            document.getElementById('saldo_m').innerHTML = "$ " + (ingreso - egreso);
+            console.log("************************************************");
+          });
         });
       });
     }
