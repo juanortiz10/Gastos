@@ -8,35 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
         <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
         <title>Pantalla de inicio</title>
-      <!--  <script type="text/javascript" src="cordova.js"></script>
+       <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/pon.js"></script>
         <script type="text/javascript">
             app.initialize();
-<<<<<<< HEAD
         </script>
-        <script type="text/javascript">
-
-        function select() {
-          var db;
-          var saldo_m = document.getElementById('saldo_m');
-          var saldo_aca = document.getElementById('saldo_aca');
-          var patrimonio = document.getElementById('patrimonio');
-          db = window.sqlitePlugin.openDatabase({name:"tp1.db"});
-          db.transaction(function (tx) {
-            tx.executeSql("select * from test_table;", [], function (tx,res) {
-            saldo_m.innerHTML = res.rows.item(0).saldo_m;
-            saldo_aca.innerHTML = res.rows.item(0).saldo_aca;
-            patrimonio.innerHTML =  res.rows.item(0).patrimonio;
-          },function (error) {
-            alert("Error al realizar la petcicion")
-          });
-          });
-        }
-        </script>
-=======
-        </script>-->
->>>>>>> f74d3ed8e9a82721c50e296e6e5c849d2b535f12
     </head>
     <body>
         <div class="app">
@@ -48,7 +25,7 @@
           <div id="main" class="container">
             <div class="row botonera">
                   <div class="col-xs-8" style="margin-top: 15%;">
-                    <ul class="no_lista table" onClick="select();">
+                    <ul class="no_lista table" onLoad="select();">
                       <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; ">saldo del mes</li>
                       <li class="row2 resultados" id="saldo_m">$0.00</li>
                       <li style="background-color: #F6F6F6; padding: 6%;">Saldo acumulado del año</li>

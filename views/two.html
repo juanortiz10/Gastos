@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../cordova.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
     <script type="text/javascript" src="../js/juan.js"></script>
@@ -16,16 +16,21 @@
         <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
         <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
       </div>
-      <div class="container" id="main">
+      <!--<div class="container" id="main">-->
         <h2 id="title">Categorias</h2>
+          <div data-role="page">
+            <div data-role="header" data-position="fixed" data-theme="b">
+            </div>
+            <div data-role="content">
+              <ul id="list">
+              </ul>
+            </div>
+          </div>
         <div class="table_container">
            <table id="main_table" >
             <tr><td class="row"><a onclick="agregarCategoria();">Agregar una nueva categoria</a></td></tr>
             </table>
         </div>
-      </div>
-    <script type="text/javascript">
-            app.initialize();
-    </script>
+      <!--</div>-->
   </body>
 </html>

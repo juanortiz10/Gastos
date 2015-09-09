@@ -1,5 +1,5 @@
 document.addEventListener("deviceready", onDeviceReady, false);
-    var db = window.openDatabase("gastos", "1.0", "local database", 200000); //will create database Dummy_DB or open it
+    var db = window.sqlitePlugin.openDatabase("gastos", "1.0", "local database", 200000); //will create database Dummy_DB or open it
 
     //function will be called when device ready
     function onDeviceReady(){
