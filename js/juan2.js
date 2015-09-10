@@ -26,10 +26,10 @@
     }
 
     function querySuccess(tx,result){
-         $.each(result.rows,function(index){
-           var row = result.rows.item(0);
-          $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
-        });
+      for (var i = 0; i < result.rows.length; i++) {
+        var row = result.rows.item(i);
+       $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
+      }
     }
 
     //Agregar categoria, se acciona cuando el usuario da clic sobre la fila de agregar

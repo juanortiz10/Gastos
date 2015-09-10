@@ -33,7 +33,7 @@
       var mm = hoy.getMonth()+1;
       if (mm<10) {mm = '0' + mm;}
       db.transaction(function(tx) {
-        tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso WHERE strftime('%m', fecha_ingreso) = ? ", [mm], function(tx,res) {
+          tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso WHERE strftime('%m', fecha_ingreso) = ? ", [mm], function(tx,res) {
           ingreso = Number(res.rows.item(0).ingreso);
           tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso WHERE strftime('%m', fecha_egreso)  = ? ", [mm], function(tx,res) {
             egreso = Number(res.rows.item(0).egresado);
@@ -52,7 +52,7 @@
       var yy = hoy.getFullYear();
       db.transaction(function(tx) {
         console.log("***************************************************");
-        tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso WHERE fecha_ingreso LIKE '"+yy+"%' ", [], function(tx,res) {
+        tx.executeSql("SELECT SUM() AS ingreso from saldos_ingreso WHERE fecha_ingreso LIKE '"+yy+"%' ", [], function(tx,res) {
           ingreso = Number(res.rows.item(0).ingreso);
           console.log("Ingrsos "+ingreso);
           tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso WHERE fecha_egreso LIKE '"+yy+"%'  ", [], function(tx,res) {

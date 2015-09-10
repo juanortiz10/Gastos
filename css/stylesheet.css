@@ -45,6 +45,28 @@ table#main_table{
   width:100%;
   font-family: 'Anton', sans-serif;
 }
+
+table.main_table2{
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  width:100%;
+  font-family: 'Anton', sans-serif;
+}
+
+table#neto{
+  font-family: 'Anton', sans-serif;
+  width: 100%;
+}
+td.cuentas{
+  text-align: center;
+  background-color: #F2F2F2;
+}
+td.resumen{
+  text-align: center;
+  background-color: #DBDBDB;
+  width: 50%;
+}
 td.row{
   width: 100%;
   background-color: #F6F6F6;
@@ -53,6 +75,13 @@ td.row{
 td.row2{
   width: 100%;
   background-color: #FFF;
+}
+
+tr.resume{
+  outline: thin solid #87E075;
+}
+tr.resumeRed{
+  outline: thin solid #E37474;
 }
 
 .no_lista{
