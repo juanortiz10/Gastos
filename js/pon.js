@@ -44,18 +44,17 @@
         });
       });
     }
-
     function selectAca(){
       var ingreso;
       var egreso= 0;
       var hoy = new Date();
-      var yy = hoy.getFullYear();
+      var yy = String(hoy.getFullYear());
       db.transaction(function(tx) {
         console.log("***************************************************");
-        tx.executeSql("SELECT SUM() AS ingreso from saldos_ingreso WHERE fecha_ingreso LIKE '"+yy+"%' ", [], function(tx,res) {
+        tx.executeSql("SELECT SUM(monto_ingresado) AS ingreso from saldos_ingreso WHERE strftime('%Y', fecha_ingreso) = ? ", [yy], function(tx,res) {
           ingreso = Number(res.rows.item(0).ingreso);
           console.log("Ingrsos "+ingreso);
-          tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso WHERE fecha_egreso LIKE '"+yy+"%'  ", [], function(tx,res) {
+          tx.executeSql("SELECT SUM(monto_egresado) AS egresado from saldos_egreso WHERE strftime('%Y', fecha_egreso) = ?  ", [yy], function(tx,res) {
             egreso = Number(res.rows.item(0).egresado);
             console.log("Egresos "+ egreso);
             document.getElementById('saldo_aca').innerHTML = "$ " + (ingreso - egreso);
