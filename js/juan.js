@@ -46,11 +46,13 @@
          navigator.notification.prompt(
         'Introduce el nombre de la categoria',
         function(results){
-            nombre=results.input1;
-            dba.transaction(function(tx){
-                tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
-                window.location.reload();
-            }, errorCB, successCB);
+            if(results.buttonIndex == 1){
+                nombre=results.input1;
+                dba.transaction(function(tx){
+                    tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
+                    window.location.reload();
+                }, errorCB, successCB);
+            }
         }, 'Categorias', ['Ok','Cancelar']);
 }//Termina agregar categoria ingreso
 

@@ -23,7 +23,7 @@
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" disabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Amount to enter</td></tr>
                 <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="Add" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="Add" class="inputs btn-danger" style="border-radius:5px;" onclick="if(insertarEgresos(sessionStorage.getItem('id_categoria'))) showNotification();"></td></tr>
             </table>
         </div>
       </div>
