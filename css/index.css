@@ -17,6 +17,7 @@ div#main{
   padding: 12%;
   background-color: #FDFDCA;
 }
+
 div.toolbar{
   width: 100%;
   height: 50px;
@@ -50,6 +51,7 @@ img.logo{
   margin-top: 13px;
   margin-left: 13px;
 }
+
 ul.table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -82,7 +84,6 @@ td.row2{
   width: 100%;
   background-color: #FFF;
 }
-
 .row2{
   background-color: #F6F6F6;
 }
@@ -108,7 +109,7 @@ td.row2{
     color: #fff;
     background-color:#424242;
     font-size:1.1em;
-    text-align: left;
+    text-align: center;
     padding-top: 5%;
     padding-left: 5%
   }

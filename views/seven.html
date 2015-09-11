@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+    <script type="text/javascript" src="../js/seven.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/stylesheet.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+      <div class="toolbar">
+        <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
+        <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+      </div>
+      <div class="container" id="main">
+        <h2 id="title">Resumen de Cuentas</h2>
+        <!--  Ingresos-->
+        <div class="table_container">
+           <table id="main_table" style="border: 4px solid #87E075" >
+             <tr class="resume">
+               <td class="resumen">Categoria</td>
+               <td class="resumen">Ingreso Mensual</td>
+             </tr>
+            </table>
+            <table id="ingresos_anual" class="main_table2" style="border: 4px solid #87E075" >
+              <tr class="resume">
+                <td class="resumen">Categoria</td>
+                <td class="resumen">Ingreso Anual</td>
+              </tr>
+             </table>
+             <table id="ingresos_acumulados" class="main_table2" style="border: 4px solid #87E075" >
+               <tr class="resume">
+                 <td class="resumen">---------</td>
+                 <td class="resumen">Acumulado</td>
+               </tr>
+              </table>
+
+              <!--  Egresos-->
+              <table id="egresos_mensual" class="main_table2" style="border: 4px solid #E37474">
+                <tr class="resumeRed">
+                  <td class="resumen">Categoria</td>
+                  <td class="resumen">Egreso Mensual</td>
+                </tr>
+               </table>
+               <table id="egresos_anual" class="main_table2" style="border: 4px solid #E37474" >
+                 <tr class="resumeRed">
+                   <td class="resumen">Categoria</td>
+                   <td class="resumen">Egreso Anual</td>
+                 </tr>
+                </table>
+                <table id="egresos_acumulados" class="main_table2" style="border: 4px solid #E37474">
+                  <tr class="resumeRed">
+                    <td class="resumen">---------</td>
+                    <td class="resumen">Acumulado</td>
+                  </tr>
+                 </table>
+        </div>
+      </div>
+  </body>
+  </html>
