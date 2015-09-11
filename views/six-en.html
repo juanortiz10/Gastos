@@ -22,8 +22,8 @@
                 <tr><td class="row" style="text-align: center;">Current account balance</td></tr>
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" disabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Amount to enter</td></tr>
-                <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="Add" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();"></td></tr>
+                <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar" onpaste="false"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-danger" style="border-radius:5px;"  onclick="if(onlyNumbers(event)){insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();}"></td></tr>
             </table>
         </div>
       </div>
@@ -36,5 +36,13 @@
   function showNotification(){
     navigator.notification.alert("Amount Added",redirect,"Success!", "Ok");
   }
+  function onlyNumbers(e){
+      if (isNaN(parseInt(document.getElementById('saldo_agregar').value))) {
+            navigator.notification.alert("Verify that the input is correct",function(){ window.location.replace(this)},"Error!", "Ok");
+            return false;
+          }else{
+            return true;
+          }
+    }
     </script>
 </html>

@@ -21,9 +21,9 @@
             <table border=1 rules=none frame=box id="main_table" style="border: 5px solid #E37474">
                 <tr><td class="row" style="text-align: center;">Sueldo Actual de la cuenta</td></tr>
                 <tr><td class="row2"><input type="text" name="sueldos" value="" class="inputs" id="saldo" disabled></td></tr>
-                <tr><td class="row"  style="text-align: center;">Monto a ingresar</td></tr>
-                <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-danger" style="border-radius:5px;" onclick="insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();"></td></tr>
+                <tr><td class="row" style="text-align: center;">Monto a ingresar</td></tr>
+                <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar" onpaste="false"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-danger" style="border-radius:5px;"  onclick="if(onlyNumbers(event)){insertarEgresos(sessionStorage.getItem('id_categoria')); showNotification();}"></td></tr>
             </table>
         </div>
       </div>
@@ -34,7 +34,16 @@
          window.location.replace("../index.html");
       }
     function showNotification(){
-      navigator.notification.alert("Monto agregado",redirect,"Exito!", "Ok");
+          navigator.notification.alert("Monto agregado",redirect,"Exito!", "Ok");
+    }
+
+    function onlyNumbers(e){
+      if (isNaN(parseInt(document.getElementById('saldo_agregar').value))) {
+            navigator.notification.alert("Verifica que hayas introducido un numero",function(){ window.location.replace(this)},"Error!", "Ok");
+            return false;
+          }else{
+            return true;
+          }
     }
 
       </script>
