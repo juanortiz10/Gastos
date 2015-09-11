@@ -30,7 +30,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //El reven starts checale lo que hice mero arriba, si no en el main .js
 function insertarIngresos(id){
   var saldo_agregar = document.getElementById('saldo_agregar').value;
-  if(typeof(saldo_agregar) == 'number'){
+  console.log(typeof(saldo_agregar));
+  if(Number(saldo_agregar) == 'number'){
     var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
 
     dba.transaction(function(tx) {
