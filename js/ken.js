@@ -36,6 +36,21 @@
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
          });
     }
+    
+
+
+/*function insertarNuevoSaldo(id) {
+  var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+  dba.transaction(function(tx) {
+    tx.executeSql('INSERT INTO cta(id_cuenta_in,saldo) VALUES (?,?)', successCB, errorCB);
+  });
+}*/
+    
+    
+    
+    
+    
+    
 
 
 

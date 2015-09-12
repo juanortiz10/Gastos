@@ -12,8 +12,8 @@
   </head>
   <body onload="getSaldo(); getTitleIngresos(sessionStorage.getItem('id_categoria'));">
     <div class="toolbar">
-      <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-      <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+      <a href="../index-en.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
+      <a href="../views/four-en.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
     </div>
       <div class="container" id="main">
         <div class="table_container">
@@ -23,7 +23,7 @@
                 <tr><td class="row2"><input type="text" name="sueldos" class="inputs" id="saldo" disabled></td></tr>
                 <tr><td class="row"  style="text-align: center;">Amount to enter</td></tr>
                 <tr><td class="row2"><input type="number" name="sueldos" value="" class="inputs" id="saldo_agregar" onpaste="return false"></td></tr>
-                <tr><td class="row"><input type="button" name="sueldos" value="ingresar" class="inputs btn-success" style="border-radius:5px;" onclick="if(onlyNumbers(event)){insertarIngresos(sessionStorage.getItem('id_categoria')); showNotification();}"></td></tr>
+                <tr><td class="row"><input type="button" name="sueldos" value="deposit" class="inputs btn-success" style="border-radius:5px;" onclick="if(onlyNumbers(event)){insertarIngresos(sessionStorage.getItem('id_categoria')); showNotification();}"></td></tr>
             </table>
         </div>
       </div>
