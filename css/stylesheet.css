@@ -1,6 +1,22 @@
 div.table_container{
 }
 
+div.con{
+  width: 100%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #87E075;
+}
+
+div.eg{
+  width: 100%;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background-color: #E37474;
+}
+
 div#main{
   padding: 12%;
   padding-top: 5%;
@@ -47,25 +63,21 @@ table#main_table{
 }
 
 table.main_table2{
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
-  width:100%;
+  
+  width: 24%;
+  display: inline-table;
   font-family: 'Anton', sans-serif;
 }
 
-table#neto{
-  font-family: 'Anton', sans-serif;
-  width: 100%;
-}
 td.cuentas{
   text-align: center;
   background-color: #F2F2F2;
+  width: 1%;
 }
 td.resumen{
   text-align: center;
   background-color: #DBDBDB;
-  width: 50%;
+  
 }
 td.row{
   width: 100%;
@@ -152,3 +164,7 @@ tr.resumeRed{
       margin-top: 7%;
       }
     }
+
+  @media (min-width: 400px) {
+    
+    } 
