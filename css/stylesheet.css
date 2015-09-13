@@ -1,4 +1,3 @@
-
 div.table_container{
 }
 
@@ -6,7 +5,6 @@ div#main{
   padding: 12%;
   padding-top: 5%;
 }
-
 div.toolbar{
   width: 100%;
   height: 50px;
@@ -34,8 +32,6 @@ img#logo{
   margin-top: 17px;
   margin-left: 13px;
 }
-
-
 input.inputs{
   display: block;
   margin: 0 auto;
@@ -49,6 +45,28 @@ table#main_table{
   width:100%;
   font-family: 'Anton', sans-serif;
 }
+
+table.main_table2{
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  width:100%;
+  font-family: 'Anton', sans-serif;
+}
+
+table#neto{
+  font-family: 'Anton', sans-serif;
+  width: 100%;
+}
+td.cuentas{
+  text-align: center;
+  background-color: #F2F2F2;
+}
+td.resumen{
+  text-align: center;
+  background-color: #DBDBDB;
+  width: 50%;
+}
 td.row{
   width: 100%;
   background-color: #F6F6F6;
@@ -58,6 +76,14 @@ td.row2{
   width: 100%;
   background-color: #FFF;
 }
+
+tr.resume{
+  outline: thin solid #87E075;
+}
+tr.resumeRed{
+  outline: thin solid #E37474;
+}
+
 .no_lista{
   list-style:none;
   font-size: 1em;
@@ -77,7 +103,6 @@ td.row2{
     background-color:#424242;
     font-size:.7em;
     font-family: 'Anton', sans-serif;
-
   }
   .botonera2{
     border-top-right-radius: 20px;
