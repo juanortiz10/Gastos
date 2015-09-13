@@ -4,11 +4,20 @@
     //function will be called when device ready
     function onDeviceReady(){
         db.transaction(function populateDB(tx){
-        tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text)');
-        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text)');
+        tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text UNIQUE)');
+        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  UNIQUE)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Saldos")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Negocios")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Pensiones")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Rentas")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Prestamos")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Dividendos")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Domingos")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Mesadas")');
+        tx.executeSql('INSERT OR IGNORE INTO categorias_egreso (nombre_categoria_egreso) VALUES("Otros")')
         }, errorCB, successCB);
     }
 
