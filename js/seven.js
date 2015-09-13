@@ -36,7 +36,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('SELECT * FROM categorias_egreso INNER JOIN saldos_egreso ON categorias_egreso.id_categoria_egreso=saldos_egreso.id_categoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? ', [mm],egresosMensual,errorCB);
        tx.executeSql('SELECT * FROM categorias_egreso INNER JOIN saldos_egreso ON categorias_egreso.id_categoria_egreso=saldos_egreso.id_categoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],egresosAnual,errorCB);
        tx.executeSql('SELECT SUM(monto_egresado) AS egreso FROM saldos_egreso ', [],egresosAcumulado,errorCB);
-
+       tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
    }
 
 //Inician metodos para ingresos
