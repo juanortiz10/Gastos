@@ -31,18 +31,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function insertarIngresos(id){
   var saldo_agregar = document.getElementById('saldo_agregar').value;
   console.log(typeof(saldo_agregar));
-  if(Number(saldo_agregar) == 'number'){
     var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
-
     dba.transaction(function(tx) {
         tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
         tx.executeSql("UPDATE cta SET saldo = saldo +  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
         getSaldo();
-        return true;
     });
-  }else{
-      return false;
-  }
 }
 
 function getTitleIngresos(id){
@@ -69,26 +63,18 @@ function getTitleEgresos(id){
 
 function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
-  if(typeof(saldo_agregar) == 'number'){
     var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
     dba.transaction(function(tx) {
         tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_categoria_egreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
         tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
         getSaldo();
-        return true;
     });
-  }else {
-    return false;
-  }
 }
 
 function getSaldo() {
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
-  console.log("i Entered first");
   dba.transaction(function(tx) {
-    tx.executeSql('INSERT INTO cta (nombre, saldo) VALUES ("Dieginho",1000)');
-    tx.executeSql("SELECT *  FROM cta",[], function (tx, res) {
-      console.log("i entered sekond");
+    tx.executeSql("SELECT *  FROM cta where id_cuenta_in = 1",[], function (tx, res) {
       document.getElementById('saldo').value = res.rows.item(0).saldo;
     },function (error) {
       alert("Error al realizar la petcicion")
