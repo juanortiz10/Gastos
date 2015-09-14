@@ -1,7 +1,6 @@
 html,body,{
   width: 100%;
   height: 100%;
-
 }
 .botonera{
   width: 100%;
@@ -10,6 +9,12 @@ body{
   background-color: #FDFDCA;
 }
 
+div.main{
+  padding-top: 15%;
+}
+div#main{
+  padding: 5%;
+}
 
 div.toolbar{
   width: 100%;
@@ -18,7 +23,6 @@ div.toolbar{
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
-  position: absolute;
 }
 
 h2#title{
@@ -104,6 +108,8 @@ td.row2{
     background-color:#424242;
     font-size:1.1em;
     text-align: center;
+    position: relative;
+    margin: 0 auto;
     padding-top: 5%;
     padding-left: 5%
   }
@@ -113,6 +119,8 @@ td.row2{
     color: #fff;
     background-color:#424242;
     font-size:1.1em;
+    position: relative;
+    margin: 0 auto;
     text-align: center;
     padding-top: 5%;
   }
@@ -135,6 +143,9 @@ td.row2{
    border-radius:9px;
    border: none;
    font-family: 'Anton', sans-serif;
+   height: 120px;
+   width: 110px;
+   margin-bottom: 50%;
    color: #fff;
    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
@@ -146,109 +157,57 @@ td.row2{
     border-radius: 9px;
     border: medium none;
     font-family: "Anton",sans-serif;
+    height: 120px;
+    width: 110px;
     -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
   }
-  @media (min-width:1200px) {
-    .ingreso{
-     height: 250px;
-     width: 220px;
-     font-size: 1.6em;
-     margin-bottom: 20%;
-    }
-    .egreso{
-      height: 250px;
-      width: 220px;
-      font-size: 1.6em;
-    }
-    div#main{
 
-      padding: 12%;
-      padding-bottom: 0%;
-      padding-top: 0%;
-      background-color: #FDFDCA;
+  @media (min-width: 300px) {
+    div#main{
+        margin-top: 15%;
+    }
+    li.row2{
+      padding: 6%;
     }
   }
-  /*Desktop chico*/
-  @media (min-width: 768px) and (max-width: 1199px)  {
-    .ingreso{
-     height: 200px;
-     width: 200px;
-    margin-bottom: 40%;
-    font-size: 1.6em;
-    }
-    .egreso{
-      height: 200px;
-      width: 200px;
-      font-size: 1.6em;
-    }
-    div#main{
-      font-size: 1.4em;
-      padding: 11%;
-      padding-bottom: 0%;
-      padding-top: 10%;
-      background-color: #FDFDCA;
-    }
 
-  }
-  /*Tablet*/
-  @media (max-width:767px) {
+  @media (min-width: 550px) {
     div#main{
-      font-size: 1.4em;
-      padding: 11%;
-      padding-bottom: 0%;
-      padding-top: 25%;
-      background-color: #FDFDCA;
+        margin-top: 5%;
     }
-    .ingreso{
-     height: 160px;
-     width: 160px;
-     margin-bottom: 20%;
-     font-size: 1.5em;
-    }
-    .egreso{
-      height: 160px;
-      width: 160px;
-      font-size: 1.5em;
-    }
-  }
-  /*Smartphone*/
-  @media (max-width:480px) {
-    div#main{
-      font-size: 1.1em;
-      padding-left: 12%;
-      padding-right: 12%;
-      padding-bottom: 0%;
-      padding-top: 11%;
-      background-color: #FDFDCA;
-    }
-    .ingreso{
-     height: 140px;
-     width: 110px;
-     margin-bottom: 50%;
-     font-size: 1.1em;
-    }
-    .egreso{
-      height: 140px;
-      width: 110px;
-      font-size: 1.1em;
-    }
-
   }
 
   @media (min-width: 900px) {
-      div.toolbar{
-        height: 70px;
-      }
-
-      img#settings{
-        margin-top: 17px;
-        width: 40px;
-      }
-
-      img#logo{
-        margin-top: 20px;
-        width: 130px;
-      }
+    div#main{
+        margin-top: 0%;
+        font-size: 1.5em;
     }
+
+    div.toolbar{
+      height: 70px;
+    }
+
+    img#settings{
+      margin-top: 17px;
+      width: 40px;
+    }
+
+    img#logo{
+      margin-top: 20px;
+      width: 130px;
+    }
+    li.row2{
+      padding: 3.5%;
+    }
+    input.ingreso{
+      width: 150px;
+      height: 150px;
+    }
+
+    input.egreso{
+      width: 150px;
+      height: 150px;
+    }
+  }

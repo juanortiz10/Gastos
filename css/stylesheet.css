@@ -181,30 +181,3 @@ tr.resumeRed{
           width: 130px;
         }
       }
-
-
-      @media (min-width:1200px) {
-        div#main{
-          font-size: 1.4em;
-        }
-      }
-      /*Desktop chico*/
-      @media (min-width: 768px) and (max-width: 1199px)  {
-        div#main{
-          font-size: 1.4em;
-        }
-
-      }
-      /*Tablet*/
-      @media (max-width:767px) {
-        div#main{
-          font-size: 1.4em;
-        }
-      }
-      /*Smartphone*/
-      @media (max-width:480px) {
-        div#main{
-          font-size: 1.1em;
-        }
-
-      }
