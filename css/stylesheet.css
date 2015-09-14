@@ -1,22 +1,6 @@
 div.table_container{
 }
 
-div.con{
-  width: 100%;
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background-color: #87E075;
-}
-
-div.eg{
-  width: 100%;
-  text-align: center;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  background-color: #E37474;
-}
-
 div#main{
   padding: 12%;
   padding-top: 5%;
@@ -63,21 +47,25 @@ table#main_table{
 }
 
 table.main_table2{
-
-  width: 24%;
-  display: inline-table;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  width:100%;
   font-family: 'Anton', sans-serif;
 }
 
+table#neto{
+  font-family: 'Anton', sans-serif;
+  width: 100%;
+}
 td.cuentas{
   text-align: center;
   background-color: #F2F2F2;
-  width: 1%;
 }
 td.resumen{
   text-align: center;
   background-color: #DBDBDB;
-
+  width: 50%;
 }
 td.row{
   width: 100%;
@@ -158,26 +146,56 @@ tr.resumeRed{
     width: 70px;
   }
 
-/* Los media queries van aqui*/
 
   @media (min-width: 768px) {
     .table_container{
       margin-top: 7%;
       }
     }
-
-    @media (min-width: 900px) {
-        div.toolbar{
-          height: 70px;
-        }
-
-        img#settings{
-          margin-top: 17px;
-          width: 40px;
-        }
-
-        img#logo{
-          margin-top: 20px;
-          width: 130px;
-        }
+    @media (min-width:1200px) {
+      div#main{
+        font-size: 1.4em;
       }
+    }
+    /*Desktop chico*/
+    @media (min-width: 768px) and (max-width: 1199px)  {
+      div#main{
+        font-size: 1.4em;
+      }
+
+    }
+    /*Tablet*/
+    @media (max-width:767px) {
+      div#main{
+        font-size: 1.4em;
+      }
+    }
+    /*Smartphone*/
+    @media (max-width:480px) {
+      div#main{
+        font-size: 1.1em;
+      }
+    }
+    /* Los media queries van aqui*/
+
+      @media (min-width: 768px) {
+        .table_container{
+          margin-top: 7%;
+          }
+        }
+
+        @media (min-width: 900px) {
+            div.toolbar{
+              height: 70px;
+            }
+
+            img#settings{
+              margin-top: 17px;
+              width: 40px;
+            }
+
+            img#logo{
+              margin-top: 20px;
+              width: 130px;
+            }
+          }
