@@ -87,9 +87,14 @@
             patrimonio = ingreso - egreso;
             tx.executeSql("SELECT avg(monto_egresado) AS promedio from saldos_egreso",[],function (tx,res) {
               promedio = Number(res.rows.item(0).promedio);
-              nr = patrimonio/promedio;
+              if (promedio != 0) {
+                nr = patrimonio/promedio;
+                document.getElementById('nivel_riqueza').innerHTML = nr.toFixed(2);
+              }else {
+                nr = "";
+                document.getElementById('nivel_riqueza').innerHTML = nr;
+              }
               console.log(nr);
-              document.getElementById('nivel_riqueza').innerHTML = nr;
             })
           });
         });
