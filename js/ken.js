@@ -15,7 +15,7 @@
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
     }
  
-    //function will be called when an error occurred
+    /*//function will be called when an error occurred
     function errorCB(err) {
         console.log("Error processing SQL: "+err.code);
     }
@@ -35,11 +35,11 @@
            var row = result.rows.item(index);
           $('#main_table').append('<tr><td class="row"><a href="../views/three.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
          });
-    }
+    }*/
     
     
     
-   function checarCuenta(){
+  function checarCuenta(){
 	
 		db.transaction(function(tx){
 		tx.executeSql('SELECT COUNT(id_cuenta_in) AS cantidad FROM cta',function(tx,res){
@@ -57,16 +57,14 @@
 	});
 	}
     
-    
 
 
 function insertarNuevoSaldo(id) {
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql('INSERT INTO cta(id_cuenta_in,saldo) VALUES (?,?)', successCB, errorCB);
+    tx.executeSql('INSERT INTO cta(id_cuenta_in,saldo) VALUES (?,?)',[], successCB, errorCB);
   });
 }
-    
     
     
     
