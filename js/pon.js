@@ -89,7 +89,7 @@
               promedio = Number(res.rows.item(0).promedio);
               if (promedio != 0) {
                 nr = patrimonio/promedio;
-                document.getElementById('nivel_riqueza').innerHTML = nr.toFixed(2);
+                document.getElementById('nivel_riqueza').innerHTML = nr.toFixed(3);
               }else {
                 nr = "";
                 document.getElementById('nivel_riqueza').innerHTML = nr;
