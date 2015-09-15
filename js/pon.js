@@ -91,7 +91,7 @@
                 nr = patrimonio/promedio;
                 document.getElementById('nivel_riqueza').innerHTML = nr.toFixed(3);
               }else {
-                nr = "";
+                nr = "0";
                 document.getElementById('nivel_riqueza').innerHTML = nr;
               }
               console.log(nr);
