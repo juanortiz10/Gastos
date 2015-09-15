@@ -56,15 +56,18 @@
          navigator.notification.prompt(
         'Introduce el nombre de la categoria',
         function(results){
-            if(results.buttonIndex == 1){
+            if (results.buttonIndex == 1){
                 nombre=results.input1;
+                if(nombre==null || nombre.length==0){
+                     navigator.notification.alert("Error",function(){window.location.reload();},"No has agregado nada", "Ok");
+                 }
                 dba.transaction(function(tx){
                     tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
                     window.location.reload();
                 }, errorCB, successCB);
             }
         }, 'Categorias', ['Ok','Cancelar']);
-}//Termina agregar categoria ingreso
+  }//Termina agregar categoria ingreso
 
 function sendId(id_categoria){
   sessionStorage.setItem("id_categoria",id_categoria);

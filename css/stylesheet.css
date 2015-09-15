@@ -49,6 +49,7 @@ img#logo{
   margin-left: 13px;
 }
 input.inputs{
+  text-align: center;
   display: block;
   margin: 0 auto;
   padding: 4%;
