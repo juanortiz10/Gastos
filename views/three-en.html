@@ -41,7 +41,7 @@
     }
   function onlyNumbers(e){
       if (isNaN(parseInt(document.getElementById('saldo_agregar').value))) {
-            navigator.notification.alert("Verify that the input is correct",function(){ window.location.replace(this)},"Error!", "Ok");
+            navigator.notification.alert("Verify that the input is correct",function(){ },"Error!", "Ok");
             return false;
           }else{
             return true;

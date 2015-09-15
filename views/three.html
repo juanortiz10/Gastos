@@ -43,7 +43,7 @@
 
   function onlyNumbers(e){
     if (isNaN(parseInt(document.getElementById('saldo_agregar').value))) {
-          navigator.notification.alert("Verifica que hayas introducido un numero",function(){ window.location.replace(this)},"Error!", "Ok");
+          navigator.notification.alert("Verifica que hayas introducido un numero",function(){ },"Error!", "Ok");
           return false;
         }else{
           return true;
