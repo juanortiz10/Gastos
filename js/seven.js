@@ -62,7 +62,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
    function ingresosAcumulado(tx,result){
        var ingreso = result.rows.item(0).ingreso;
-      $('#ingresos_acum').append('<tr><td class="cuentas">'+ingreso+'</td></tr>');
+       if (!(ingreso == null || ingreso.length==0))
+          $('#ingresos_acum').append('<tr><td class="cuentas">'+ingreso+'</td></tr>');
+
    }
 
 //Inician metodos para egresos
@@ -88,5 +90,6 @@ function egresosAnual(tx,result){
 
 function egresosAcumulado(tx,result){
     var egreso = result.rows.item(0).egreso;
-   $('#egresos_acum').append('<tr><td class="cuentas">'+egreso+'</td></tr>');
+    if (!(egreso == null || egreso.length==0))
+      $('#egresos_acum').append('<tr><td class="cuentas">'+egreso+'</td></tr>');
 }

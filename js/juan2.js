@@ -53,11 +53,12 @@
                 nombre=results.input1;
                 if(nombre==null || nombre.length==0){
                      navigator.notification.alert("Error",function(){window.location.reload();},"No has agregado nada", "Ok");
-                 }
+                 }else{
                 dba.transaction(function(tx){
                     tx.executeSql('INSERT INTO categorias_egreso(nombre_categoria_egreso) VALUES("'+nombre+'") ');
                     window.location.reload();
                 }, errorCB, successCB);
+              }
             }
         }, 'Categorias', ['Ok','Cancelar']);
   }//Termina agregar categoria ingreso
