@@ -3,28 +3,29 @@
 
     //function will be called when device ready
     function onDeviceReady(){
+
         db.transaction(function populateDB(tx){
         tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
-        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  )');
+        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  UNIQUE)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
+        
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Balance" WHERE id_categoria_ingreso=1');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Business" WHERE id_categoria_ingreso=2');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Pensions" WHERE id_categoria_ingreso=3');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Income" WHERE id_categoria_ingreso=4');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Loans" WHERE id_categoria_ingreso=5');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Dividends" WHERE id_categoria_ingreso=6');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Sundays" WHERE id_categoria_ingreso=7');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Mesadas" WHERE id_categoria_ingreso=8');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Otros" WHERE id_categoria_ingreso=9')
 
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Saldos" WHERE id_categoria_egreso=1');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Negocios" WHERE id_categoria_egreso=2');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Pensiones" WHERE id_categoria_egreso=3');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Rentas" WHERE id_categoria_egreso=4');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Prestamos" WHERE id_categoria_egreso=5');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Dividendos" WHERE id_categoria_egreso=6');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Domingos" WHERE id_categoria_egreso=7');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Mesadas" WHERE id_categoria_egreso=8');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Otros" WHERE id_categoria_egreso=9')
-
-        }, errorCB, successCB);
+          }, errorCB, successCB);
     }
 
     function errorCB(err) {
-        console.log("Error processing SQL: "+err.message);
+           console.log("Error processing SQL: "+err.message);
     }
 
     //function will be called when process succeed
@@ -32,14 +33,15 @@
         console.log("success!");
         db.transaction(queryDB,errorCB);
     }
+
     function queryDB(tx){
-        tx.executeSql('SELECT * FROM categorias_egreso',[],querySuccess,errorCB);
+        tx.executeSql('SELECT * FROM categorias_ingreso',[],querySuccess,errorCB);
     }
 
     function querySuccess(tx,result){
       for (var i = 0; i < result.rows.length; i++) {
         var row = result.rows.item(i);
-       $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_categoria_egreso']+')">'+row['nombre_categoria_egreso']+'</a></td></tr>');
+       $('#main_table').append('<tr><td class="row"><a href="../views/three-en.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
       }
     }
 
@@ -57,7 +59,7 @@
                      navigator.notification.alert("Error",function(){window.location.reload();},"No has agregado nada", "Ok");
                  }else{
                 dba.transaction(function(tx){
-                    tx.executeSql('INSERT INTO categorias_egreso(nombre_categoria_egreso) VALUES("'+nombre+'") ');
+                    tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
                     window.location.reload();
                 }, errorCB, successCB);
               }
@@ -65,6 +67,7 @@
         }, 'Categorias', ['Ok','Cancelar']);
   }//Termina agregar categoria ingreso
 
-  function sendId(id_categoria){
+function sendId(id_categoria){
   sessionStorage.setItem("id_categoria",id_categoria);
-  }
+}
+//Ends Juan Ortiz
