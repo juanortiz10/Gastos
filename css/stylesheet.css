@@ -64,7 +64,6 @@ table#main_table{
 }
 
 table.main_table2{
-
   width: 24%;
   display: inline-table;
   font-family: 'Anton', sans-serif;
@@ -74,12 +73,15 @@ td.cuentas{
   text-align: center;
   background-color: #F2F2F2;
   width: 1%;
+  height:80px;
+  
 }
 td.resumen{
   text-align: center;
   background-color: #DBDBDB;
 
 }
+
 td.row{
   width: 100%;
   background-color: #F6F6F6;
@@ -207,5 +209,8 @@ tr.resumeRed{
         div#main{
           font-size: 1.1em;
         }
-
+        table.main_table2{
+           width: 24%;
+           font-size: 0.9em;
+        }
       }

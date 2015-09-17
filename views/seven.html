@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
+  <body onload="getDate()">
       <div class="toolbar">
         <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
         <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
@@ -22,35 +22,50 @@
         
           <div class="con">
            <table id="ingresos_categoria"  class="main_table2">
-             <tr><td class="resumen">Categoria</td></tr>
+             <tr><td class="resumen"><p id="cat"></p></td></tr>
             </table>
             <table id="ingresos_mensuales" class="main_table2">
-             <tr><td class="resumen">Mensual</td></tr>
+             <tr><td class="resumen"><p id="mensual"></p></td></tr>
             </table>
-            <table id="ingresos_anuales"  class="main_table2" >
-             <tr><td class="resumen">Anual</td></tr>
+            <table id="ingresos_anuales" class="main_table2" >
+             <tr><td class="resumen"><p id="anual"></p></td></tr>
             </table>
             <table id="ingresos_acum"  class="main_table2">
-             <tr><td class="resumen">Acum.</td></tr>
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
             </table>
           </div>
 
           <!--  Egresos-->
           <div class="eg">
            <table id="egresos_categoria"  class="main_table2">
-             <tr><td class="resumen">Categoria</td></tr>
+             <tr><td class="resumen"><p id="cat2"></p></td></tr>
             </table>
             <table id="egresos_mensuales" class="main_table2">
-             <tr><td class="resumen">Mensual</td></tr>
+             <tr><td class="resumen"><p id="mensual2"></p></td></tr>
             </table>
             <table id="egresos_anuales"  class="main_table2" >
-             <tr><td class="resumen">Anual</td></tr>
+             <tr><td class="resumen"><p id="anual2"></p></td></tr>
             </table>
             <table id="egresos_acum"  class="main_table2">
-             <tr><td class="resumen">Acum.</td></tr>
+             <tr><td class="resumen"><p id="acum2"></p></td></tr>
             </table>
           </div>
- 
+  <script type="text/javascript">
+    function getDate(){
+       var hoy = new Date();
+        var mm = hoy.getMonth()+1;
+       if (mm<10) mm = '0' + mm;
+        var yy = (hoy.getFullYear()).toString();
+        document.getElementById('mensual').innerHTML="Mensual ("+mm+")";
+        document.getElementById('mensual2').innerHTML="Mensual ("+mm+")";
+        document.getElementById('anual').innerHTML="Anual ("+yy+")";
+        document.getElementById('anual2').innerHTML="Anual ("+yy+")";
+        document.getElementById('cat').innerHTML="Categoría";
+        document.getElementById('cat2').innerHTML="Categoría";
+        document.getElementById('acum').innerHTML="Acum.";
+        document.getElementById('acum2').innerHTML="Acum.";
+    }
+  </script>
   </body>
   </html>
     

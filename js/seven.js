@@ -44,27 +44,27 @@ document.addEventListener("deviceready", onDeviceReady, false);
    function ingresosCategoria(tx,result){
      for (var i = 0; i < result.rows.length; i++) {
        var row = result.rows.item(i);
-      $('#ingresos_categoria').append('<tr><td class="cuentas">'+row['nombre_categoria_ingreso']+'</td></tr>');
+      $('#ingresos_categoria').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['nombre_categoria_ingreso']+'</td></tr>');
      }
    }
    function ingresosMensual(tx,result){
      for (var i = 0; i < result.rows.length; i++) {
        var row = result.rows.item(i);
-      $('#ingresos_mensuales').append('<tr><td class="cuentas">'+row['monto_ingresado']+'</td></tr>');
+      $('#ingresos_mensuales').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['monto_ingresado']+'</td></tr>');
      }
    }
 
    function ingresosAnual(tx,result){
      for (var i = 0; i < result.rows.length; i++) {
        var row = result.rows.item(i);
-      $('#ingresos_anuales').append('<tr><td class="cuentas">'+row['monto_ingresado']+'</td></tr>');
+      $('#ingresos_anuales').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['monto_ingresado']+'</td></tr>');
      }
    }
 
    function ingresosAcumulado(tx,result){
        var ingreso = result.rows.item(0).ingreso;
        if (!(ingreso == null || ingreso.length==0))
-          $('#ingresos_acum').append('<tr><td class="cuentas">'+ingreso+'</td></tr>');
+          $('#ingresos_acum').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+ingreso+'</td></tr>');
 
    }
 
@@ -72,25 +72,25 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function egresosCategoria(tx,result){
   for (var i = 0; i < result.rows.length; i++) {
     var row = result.rows.item(i);
-   $('#egresos_categoria').append('<tr><td class="cuentas">'+row['nombre_subcategoria_egreso']+'</td></tr>');
+   $('#egresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['nombre_subcategoria_egreso']+'</td></tr>');
   }
 }
 function egresosMensual(tx,result){
   for (var i = 0; i < result.rows.length; i++) {
     var row = result.rows.item(i);
-   $('#egresos_mensuales').append('<tr><td class="cuentas">'+row['monto_egresado']+'</td></tr>');
+   $('#egresos_mensuales').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['monto_egresado']+'</td></tr>');
   }
 }
 
 function egresosAnual(tx,result){
   for (var i = 0; i < result.rows.length; i++) {
     var row = result.rows.item(i);
-   $('#egresos_anuales').append('<tr><td class="cuentas">'+row['monto_egresado']+'</td></tr>');
+   $('#egresos_anuales').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['monto_egresado']+'</td></tr>');
   }
 }
 
 function egresosAcumulado(tx,result){
     var egreso = result.rows.item(0).egreso;
     if (!(egreso == null || egreso.length==0))
-      $('#egresos_acum').append('<tr><td class="cuentas">'+egreso+'</td></tr>');
+      $('#egresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+egreso+'</td></tr>');
 }
