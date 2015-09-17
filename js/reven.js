@@ -19,9 +19,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
       console.log("POPULATE DB");
       tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
       tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  )');
-        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
-        tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
-        tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
+      tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
+      tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
+      tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
+      tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
     }
 
     //function will be called when an error occurred
@@ -42,7 +43,7 @@ function insertarIngresos(id){
 function getTitleIngresos(id){
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql("SELECT nombre_categoria_ingreso  FROM categorias_ingreso where id_categoria_ingreso = ? ",[id], function (tx, res) {
+    tx.executeSql("SELECT nombre_categoria_ingreso FROM categorias_ingreso where id_categoria_ingreso = ? ",[id], function (tx, res) {
       document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_ingreso;
     },function (error) {
       alert("Error al realizar la petcicion")
@@ -51,10 +52,11 @@ function getTitleIngresos(id){
 }
 
 function getTitleEgresos(id){
+  console.log(id);
   var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
   dba.transaction(function(tx) {
-    tx.executeSql("SELECT nombre_categoria_egreso  FROM categorias_egreso where id_categoria_egreso = ? ",[id], function (tx, res) {
-      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_egreso;
+    tx.executeSql("SELECT nombre_subcategoria_egreso FROM subcategorias_egreso where id_subcategoria_egreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_subcategoria_egreso;
     },function (error) {
       alert("Error al realizar la petcicion")
     });
@@ -65,7 +67,7 @@ function insertarEgresos(id) {
   var saldo_agregar = document.getElementById('saldo_agregar').value;
     var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
     dba.transaction(function(tx) {
-        tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_categoria_egreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
+        tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_subcategoria_egreso) VALUES (?,?)",[saldo_agregar, id], successCB, errorCB);
         tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
         getSaldo();
     });

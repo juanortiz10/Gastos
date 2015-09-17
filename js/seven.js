@@ -6,8 +6,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
        db.transaction(function populateDB(tx){
        tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  )');
+       tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
-       tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_categoria_egreso integer)');
+       tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
        tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
 
          }, errorCB, successCB);
@@ -32,9 +33,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%m", saldos_ingreso.fecha_ingreso) = ? ', [mm],ingresosMensual,errorCB);
        tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%Y", saldos_ingreso.fecha_ingreso) = ? ', [yy],ingresosAnual,errorCB);
        tx.executeSql('SELECT SUM(monto_ingresado) AS ingreso FROM saldos_ingreso ', [],ingresosAcumulado,errorCB);
-       tx.executeSql('SELECT * FROM categorias_egreso INNER JOIN saldos_egreso ON categorias_egreso.id_categoria_egreso=saldos_egreso.id_categoria_egreso', [],egresosCategoria,errorCB);
-       tx.executeSql('SELECT * FROM categorias_egreso INNER JOIN saldos_egreso ON categorias_egreso.id_categoria_egreso=saldos_egreso.id_categoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? ', [mm],egresosMensual,errorCB);
-       tx.executeSql('SELECT * FROM categorias_egreso INNER JOIN saldos_egreso ON categorias_egreso.id_categoria_egreso=saldos_egreso.id_categoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],egresosAnual,errorCB);
+       tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],egresosCategoria,errorCB);
+       tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? ', [mm],egresosMensual,errorCB);
+       tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],egresosAnual,errorCB);
        tx.executeSql('SELECT SUM(monto_egresado) AS egreso FROM saldos_egreso ', [],egresosAcumulado,errorCB);
        tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
    }
@@ -71,7 +72,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function egresosCategoria(tx,result){
   for (var i = 0; i < result.rows.length; i++) {
     var row = result.rows.item(i);
-   $('#egresos_categoria').append('<tr><td class="cuentas">'+row['nombre_categoria_egreso']+'</td></tr>');
+   $('#egresos_categoria').append('<tr><td class="cuentas">'+row['nombre_subcategoria_egreso']+'</td></tr>');
   }
 }
 function egresosMensual(tx,result){
