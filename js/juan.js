@@ -24,7 +24,7 @@
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)')
         
         if(results==null || results==0){
-        tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Saldos")');
+        tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Sueldo/Salario")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Negocios")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Pensiones")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Rentas")');
@@ -78,7 +78,7 @@
 
       }
        
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Saldos" WHERE id_categoria_ingreso=1');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Sueldo/Salario" WHERE id_categoria_ingreso=1');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Negocios" WHERE id_categoria_ingreso=2');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Pensiones" WHERE id_categoria_ingreso=3');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Rentas" WHERE id_categoria_ingreso=4');
