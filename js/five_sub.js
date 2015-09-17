@@ -71,7 +71,7 @@
      function querySuccess(tx,result){
       for (var i = 0; i < result.rows.length; i++) {
         var row = result.rows.item(i);
-       $('#main_table').append('<tr><td class="row"><a href="../views/six.html" onclick="sendId('+row['id_subcategoria_egreso']+')">'+row['nombre_subcategoria_egreso']+'</a></td></tr>');
+       $('#main_table').append('<tr><td class="row" style="border: 2px solid #E37474"><a href="../views/six.html" onclick="sendId('+row['id_subcategoria_egreso']+')">'+row['nombre_subcategoria_egreso']+'</a></td></tr>');
       }
       return true;
     }

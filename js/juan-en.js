@@ -42,7 +42,7 @@
     function querySuccess(tx,result){
       for (var i = 0; i < result.rows.length; i++) {
         var row = result.rows.item(i);
-       $('#main_table').append('<tr><td class="row"><a href="../views/three-en.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
+       $('#main_table').append('<tr><td class="row" style="border-bottom:2pt solid #87E075;"><a href="../views/three-en.html" onclick="sendId('+row['id_categoria_ingreso']+')">'+row['nombre_categoria_ingreso']+'</a></td></tr>');
       }
     }
 
