@@ -11,10 +11,10 @@
        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/pon.js"></script>
-        <script type="text/javascript" src="js/ken.js"></script>
+      <!--  <script type="text/javascript" src="js/ken.js"></script>-->
         <script type="text/javascript">
             app.initialize();
-            checarCuenta();
+          //  checarCuenta();
         </script>
     </head>
     <body>
@@ -24,18 +24,18 @@
             <a href="#"><img src="icons/logo.png" alt="logo" id="logo" /></a>
             </div>
 
-          <div id="main" class="container">
+          <div id="main" class="container" >
             <div class="row botonera" >
                   <div class="col-xs-8" style="margin-top: 15%;">
-                    <ul class="no_lista table" onLoad="select();">
+                    <ul class="no_lista table" onLoad="select(); ">
                       <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; ">saldo del mes</li>
-                      <li class="row2 resultados" id="saldo_m">$0.00</li>
+                      <li class="row2 resultados" id="saldo_m">$0</li>
                       <li style="background-color: #F6F6F6; padding: 6%;">Saldo acumulado del año</li>
-                      <li class="resultados" id="saldo_aca">$0.00</li>
+                      <li class="resultados" id="saldo_aca">$0</li>
                       <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Patrimonio acumulado</li>
-                      <li class="row2 resultados" id="patrimonio">$0.00</li>
+                      <li class="row2 resultados" id="patrimonio">$0</li>
                       <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Nivel de Riqueza</li>
-                      <li class="row2 resultados" id="nivel_riqueza"></li>
+                      <li class="row2 resultados" id="nivel_riqueza">0</li>
                     </ul>
                   </div>
                   <div class="col-xs-4" style="margin-top: 15%;">
@@ -46,12 +46,15 @@
                   </div>
             </div>
             <div class="row botonera">
-              <div style=" margin-left:0%; width: 140%; margin-top:10%; col-xs-12" >
+              <div style=" margin-left:0%; width: 140%; col-xs-12">
                 <ul class="no_lista inline-block">
-                  <li class="col-xs-7 botonera1" ><a href="../www/views/seven.html">Saldos</a></li>
+                  <li class="col-xs-7 botonera1" ><a href="../www/views/seven.html">Resumen de  Cuentas</a></li>
                   <li class="col-xs-5 botonera2" ><a href="../www/views/four.html">Ajustes</a></li>
                 </ul>
               </div>
+            </div>
+            <div class="row pub">
+                Publicidad
             </div>
         </div>
         </div>
