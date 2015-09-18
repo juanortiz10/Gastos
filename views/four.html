@@ -28,7 +28,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
-        <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'/>
         <title>Pantalla de ajustes</title>
     </head>
     <body>
@@ -38,11 +37,11 @@
             <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
            	</div>
           <div class="container" id="main">
-         <h2 id="title" style="font-family: 'Anton',sans-serif">Ajustes</h2>
+         <h2 id="title">Ajustes</h2>
          <div class="table_container">
             <table id="main_table">
             	<form name="idioma1" action="../views/four-en.html" method="post">
-                <tr><td class="row" align="center"><label for="usr"  style="font-family: 'Anton',sans-serif">Idioma</label><br /><label class="checkbox-inline" style="font-family: 'Anton',sans-serif"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline" style="font-family: 'Anton',sans-serif"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" style="font-family: 'Anton',sans-serif" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
+                <tr><td class="row" align="center"><label for="usr">Idioma</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
             	</form>
             	<!--<tr><td class="row2" align="center"><label for="usr" style="font-family: 'Anton',sans-serif">Saldo Inicial:</label><br /></a><input type="number" class="form-control" name="Inicial" /><br /><button type="button" class="btn btn-success" style="font-family: 'Anton',sans-serif" value="Agregar" onclick="insertarNuevoSaldo();" >Agregar</button></td></tr>-->
             </table>
