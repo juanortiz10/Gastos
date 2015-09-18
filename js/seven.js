@@ -32,11 +32,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso', [],ingresosCategoria,errorCB);
        tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%m", saldos_ingreso.fecha_ingreso) = ? ', [mm],ingresosMensual,errorCB);
        tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%Y", saldos_ingreso.fecha_ingreso) = ? ', [yy],ingresosAnual,errorCB);
-       tx.executeSql('SELECT SUM(monto_ingresado) AS ingreso FROM saldos_ingreso ', [],ingresosAcumulado,errorCB);
+       tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%Y", saldos_ingreso.fecha_ingreso) = ? ', [yy],ingresosAcumulado,errorCB);
        tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],egresosCategoria,errorCB);
        tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? ', [mm],egresosMensual,errorCB);
        tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],egresosAnual,errorCB);
-       tx.executeSql('SELECT SUM(monto_egresado) AS egreso FROM saldos_egreso ', [],egresosAcumulado,errorCB);
+       tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],egresosAcumulado,errorCB);
+    
        tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
    }
 
@@ -62,10 +63,10 @@ document.addEventListener("deviceready", onDeviceReady, false);
    }
 
    function ingresosAcumulado(tx,result){
-       var ingreso = result.rows.item(0).ingreso;
-       if (!(ingreso == null || ingreso.length==0))
-          $('#ingresos_acum').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+ingreso+'</td></tr>');
-
+    for(var i = 0; i < result.rows.length; i++){
+      var row = result.rows.item(i);
+      $('#ingresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #87E075" >'+row['monto_ingresado']+'</td></tr>');
+    }
    }
 
 //Inician metodos para egresos
@@ -90,7 +91,8 @@ function egresosAnual(tx,result){
 }
 
 function egresosAcumulado(tx,result){
-    var egreso = result.rows.item(0).egreso;
-    if (!(egreso == null || egreso.length==0))
-      $('#egresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+egreso+'</td></tr>');
+    for(var i = 0; i < result.rows.length; i++){
+      var row = result.rows.item(i);
+      $('#egresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['monto_egresado']+'</td></tr>');
+    }
 }
