@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style type="text/css">
+    html,body{
+      overflow: hidden;
+    }
+    </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="../cordova.js"></script>
@@ -11,15 +16,14 @@
     <link rel="stylesheet" href="../css/stylesheet.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="../css/bootstrap.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body onload="getDate();">
+  <body onload="getDate()">
       <div class="toolbar">
-        <a href="../index-en.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-        <a href="../views/four-en.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+        <a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
+        <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
       </div>
       
-        <h2 id="title">Account History</h2>
+        <h2 id="title">Resumen De Cuentas</h2>
         
-              
           <div class="con">
            <table id="ingresos_categoria"  class="main_table2">
              <tr><td class="resumen"><p id="cat"></p></td></tr>
@@ -32,6 +36,22 @@
             </table>
             <table id="ingresos_acum"  class="main_table2">
              <tr><td class="resumen"><p id="acum"></p></td></tr>
+            </table>
+            <table id="ingresos_neto" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td class="cuentas" style="border: 4px solid #87E075">Total</td></tr>
+            </table>
+            <table id="ingresos_neto_mensual" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="ineto" class="cuentas" style="border: 4px solid #87E075" ></td></tr>
+            </table>
+            <table id="ingresos_neto_anual" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="inetoa" class="cuentas" style="border: 4px solid #87E075" ></td></tr>
+            </table>
+            <table id="ingresos_neto_acum" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="inetoac" class="cuentas" style="border: 4px solid #87E075" ></td></tr>
             </table>
           </div>
 
@@ -49,25 +69,38 @@
             <table id="egresos_acum"  class="main_table2">
              <tr><td class="resumen"><p id="acum2"></p></td></tr>
             </table>
+             <table id="egresos_neto" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="eneto" class="cuentas" style="border: 4px solid #E37474" >Total</td></tr>
+            </table>
+            <table id="egresos_netomen" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="enetome" class="cuentas" style="border: 4px solid #E37474" ></td></tr>
+            </table>
+            <table id="egresos_netoan" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="enetoan" class="cuentas" style="border: 4px solid #E37474" ></td></tr>
+            </table>
+            <table id="egresos_netoac" class="main_table3">
+             <tr><td class="resumen"><p id="acum"></p></td></tr>
+             <tr><td id="enetoac" class="cuentas" style="border: 4px solid #E37474" ></td></tr>
+            </table>
           </div>
-
- <script type="text/javascript">
+  <script type="text/javascript">
     function getDate(){
        var hoy = new Date();
         var mm = hoy.getMonth()+1;
        if (mm<10) mm = '0' + mm;
         var yy = (hoy.getFullYear()).toString();
-        document.getElementById('mensual').innerHTML="Monthly ("+mm+")";
+        document.getElementById('mensual').innerHTML="Monthly("+mm+")";
         document.getElementById('mensual2').innerHTML="Monthly ("+mm+")";
         document.getElementById('anual').innerHTML="Annual ("+yy+")";
         document.getElementById('anual2').innerHTML="Annual ("+yy+")";
         document.getElementById('cat').innerHTML="Category";
-        document.getElementById('cat2').innerHTML="Category";
-        document.getElementById('acum').innerHTML="Accum.";
-        document.getElementById('acum2').innerHTML="Accum.";
+        document.getElementById('cat2').innerHTML="Subcategory";
+        document.getElementById('acum').innerHTML="Accum";
+        document.getElementById('acum2').innerHTML="Accum";
     }
-
-
   </script>
   </body>
   </html>
