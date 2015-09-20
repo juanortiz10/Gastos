@@ -69,6 +69,11 @@ table.main_table2{
   font-family: 'Anton', sans-serif;
 }
 
+table.main_table3{
+  width: 24%;
+  display: inline-table;
+  font-family: 'Anton', sans-serif; 
+}
 td.cuentas{
   text-align: center;
   background-color: #F2F2F2;
@@ -211,6 +216,6 @@ tr.resumeRed{
         }
         table.main_table2{
            width: 24%;
-           font-size: 0.9em;
+           font-size: 0.8em;
         }
       }
