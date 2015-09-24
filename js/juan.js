@@ -36,7 +36,7 @@
         
         tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Indispensables/Básicos")');
         tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Herramientas Útiles/Secundarios")');
-        tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Superflujos/Innecesarios")');
+        tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Superfluos/Innecesarios")');
 
         tx.executeSql('INSERT INTO subcategorias_egreso (nombre_subcategoria_egreso,id_categoria_egreso) VALUES("Ahorro para Invertir",1)');
         tx.executeSql('INSERT INTO subcategorias_egreso (nombre_subcategoria_egreso,id_categoria_egreso) VALUES("Alimentos",1)');

@@ -101,3 +101,14 @@
     function sendId(id_categoria){
   		sessionStorage.setItem("id_categoria",id_categoria);
   	}
+
+    function getTitleIngresos(id){
+    var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
+    dba.transaction(function(tx) {
+        tx.executeSql("SELECT nombre_categoria_egreso FROM categorias_egreso where id_categoria_egreso = ? ",[id], function (tx, res) {
+      document.getElementById('title').innerHTML = res.rows.item(0).nombre_categoria_egreso;
+    },function (error) {
+      alert("Error al realizar la petcicion")
+    });
+  });
+}
