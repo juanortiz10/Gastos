@@ -47,7 +47,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
                 $('#ingresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #87E075" >'+row['nombre_categoria_ingreso']+'</td></tr>')
                 });
              }
-             $('#ingresos_neto').append('<tr><td class="cuentas" style="border: 4px solid #87E075" >Neto</td></tr>')
           });
         });
        //SELECCIONAR INGRESOS MENSUALES
