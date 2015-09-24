@@ -44,7 +44,7 @@ img#settings{
 }
 img#logo{
   float: left;
-  width: 95px;
+  width: 5px;
   margin-top: 17px;
   margin-left: 13px;
 }
@@ -72,14 +72,14 @@ table.main_table2{
 table.main_table3{
   width: 24%;
   display: inline-table;
-  font-family: 'Anton', sans-serif; 
+  font-family: 'Anton', sans-serif;
 }
 td.cuentas{
   text-align: center;
   background-color: #F2F2F2;
   width: 1%;
   height:80px;
-  
+
 }
 td.resumen{
   text-align: center;
