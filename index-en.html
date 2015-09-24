@@ -9,7 +9,7 @@
         <title>Pantalla de inicio</title>
        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/pon.js"></script>
+        <script type="text/javascript" src="js/pon-en.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -25,13 +25,13 @@
             <div class="row botonera">
                   <div class="col-xs-8" style="margin-top: 15%;">
                     <ul class="no_lista table" onLoad="select();">
-                      <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; ">Of  The Month</li>
+                      <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; " id="month">Balance Of  The Month</li>
                       <li class="row2 resultados" id="saldo_m">$0.00</li>
-                      <li style="background-color: #F6F6F6; padding: 6%;">Accumulated Balance Of The Year</li>
+                      <li style="background-color: #F6F6F6; padding: 6%;" id="year">Accumulated Balance Of The Year</li>
                       <li class="resultados" id="saldo_aca">$0.00</li>
                       <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Accumulated Heritage</li>
                       <li class="row2 resultados" id="patrimonio">$0.00</li>
-                      <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Wealth Level</li>
+                      <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Wealth Level (In Months)</li>
                       <li class="row2 resultados" id="nivel_riqueza">0</li>
                     </ul>
                   </div>
@@ -45,13 +45,13 @@
             <div class="row botonera">
               <div style=" margin-left:0%; width: 140%; col-xs-12" >
                 <ul class="no_lista inline-block">
-                  <li class="col-xs-7 botonera1" ><a href="../www/views/seven-en.html">Account Summary</a></li>
+                  <li class="col-xs-7 botonera1" ><a href="../www/views/seven-en.html">Summary</a></li>
                   <li class="col-xs-5 botonera2" ><a href="../www/views/four-en.html">Settings</a></li>
                 </ul>
               </div>
             </div>
             <div class="row pub">
-                Add 
+                Add
             </div>
         </div>
         </div>

@@ -43,6 +43,7 @@
             selectAca();
             selectPat();
             nivel_riqueza();
+            fecha();
           });
         });
       });
@@ -102,3 +103,11 @@
         });
       });
     }
+function fecha() {
+  var mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  var hoy = new Date();
+  var m = Number(hoy.getMonth());
+  console.log("**************************" + mes[m]);
+  document.getElementById('mes').innerHTML = "Saldo Del Mes: " + mes[m];
+  document.getElementById('anio').innerHTML = "Saldo Acumulado Del Año: " + String(hoy.getFullYear());
+}

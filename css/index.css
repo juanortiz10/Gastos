@@ -216,7 +216,7 @@ td.row2{
   /*Smartphone*/
   @media (max-width:480px) {
     div#main{
-      font-size: 1.1em;
+      font-size: .9em;
       padding-left: 12%;
       padding-right: 12%;
       padding-bottom: 0%;
