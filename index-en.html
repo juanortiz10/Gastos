@@ -23,8 +23,8 @@
 
           <div id="main" class="container">
             <div class="row botonera">
-                  <div class="col-xs-8" style="margin-top: 15%;">
-                    <ul class="no_lista table" onLoad="select();">
+                  <div class="col-xs-8 tabla_principal" style="margin-top: 15%;">
+                    <ul class="no_lista table " onLoad="select();">
                       <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; " id="month">Balance Of  The Month</li>
                       <li class="row2 resultados" id="saldo_m">$0.00</li>
                       <li style="background-color: #F6F6F6; padding: 6%;" id="year">Accumulated Balance Of The Year</li>
@@ -37,10 +37,19 @@
                   </div>
                   <div class="col-xs-4" style="margin-top: 15%;">
                     <ul class="no_lista">
-                      <li><input type="button"  class="ingreso" value="Entry" onclick="window.location.href='../www/views/two-en.html'"></li>
-                      <li><input type="button"  class="egreso" value="Egress" onclick="window.location.href='../www/views/five-en.html'"></li>
+                      <li><button type="button"  class="ingreso" value="Entry" onclick="window.location.href='../www/views/two-en.html'">
+                        Enter
+                        Income
+                      </button></li>
+                      <li><button type="button"  class="egreso" value="Egress" onclick="window.location.href='../www/views/five-en.html'">
+                        Enter
+                        Egress
+                      </button></li>
                     </ul>
                   </div>
+            </div>
+            <div class="nota">
+              *The level of wealth indicates how  many months could you live  without any income and your  current spending level
             </div>
             <div class="row botonera">
               <div style=" margin-left:0%; width: 140%; col-xs-12" >
