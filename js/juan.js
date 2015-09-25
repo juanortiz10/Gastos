@@ -13,7 +13,7 @@
         db.transaction(function populateDB(tx){
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Indispensables/Básicos" WHERE id_categoria_egreso=1');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Herramientas Útiles/Secundarios" WHERE id_categoria_egreso=2');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superflujos/Innecesarios" WHERE id_categoria_egreso=3');
+        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superfluos/Innecesarios" WHERE id_categoria_egreso=3');
 
 
         tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text)');
