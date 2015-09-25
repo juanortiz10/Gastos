@@ -41,9 +41,12 @@
          <div class="table_container">
             <table id="main_table">
             	<form name="idiomas" action="../views/four.html" method="post">
-                <tr><td class="row" align="center"><label for="usr">Language</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español">Spanish</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles" checked="checked">English</label></br></br><button type="submit" class="btn btn-success" value="Agregar">Change</button></br></td></tr>
+                <tr><td class="row" align="center"><label for="usr">Language</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español">Spanish</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles" checked="checked">English</label></br></br><button type="submit" class="btn btn-success" value="Agregar">Change</button></td></tr>
             	</form>
-            	<!--<tr><td class="row2" align="center"><label for="usr" style="font-family: 'Anton',sans-serif"S>Beggining Balance:</label><br /><input type="number" class="form-control" name="Inicial" /><br /><button type="button" class="btn btn-success" style="font-family: 'Anton',sans-serif" value="Agregar" onclick="insertarNuevoSaldo();" >Add</button></br></td></tr>-->
+            	<form name="regresar" action="../index-en.html" method="post">
+                <td class="row" align="center"><button type="submit" class="btn btn-success"  value="Volver A Inicio">Back</button></td>
+            	</form>
+            
             </table>
         </div>
         </div>
