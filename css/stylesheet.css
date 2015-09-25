@@ -1,6 +1,12 @@
 *{
   overflow: hidden;
 }
+
+button#btnAdd{
+    display: block;
+    margin: 0 auto;
+}
+
 div.table_container{
 }
 
@@ -39,6 +45,15 @@ h2#title{
   font-family: 'Anton', sans-serif;
 }
 
+h4{
+  text-align: center;
+}
+
+h5.name{
+    text-align: center;
+    font-weight: bold;
+}
+
 img#settings{
   float: right;
   width: 34px;
@@ -56,6 +71,19 @@ input.inputs{
   display: block;
   margin: 0 auto;
   padding: 4%;
+}
+
+input#nombre_cuenta{
+  display: block;
+  margin: 0 auto;
+}
+
+select#select_cta{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 80%;
+  padding: 5px;
 }
 
 table#main_table{
@@ -231,8 +259,5 @@ tr.resumeRed{
 
         table.main_table3{
           width: 22%;
-        }   
+        }
        }
-
-
-
