@@ -115,7 +115,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             }            
           });        
        });
-
+      //Egresos Categorias
        db.transaction(function(tx){
           tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],function(tx,result){
             var idSaldos=[], idCat=[];
@@ -127,7 +127,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             var uni = idCat.filter(function(elem, index, self) {return index == self.indexOf(elem);});
             for(var a=0; a<uni.length; a++){
                 var val=uni[a];
-                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_categoria_egreso= ?',[val],function(tx,result){
+                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_subcategoria_egreso= ?',[val],function(tx,result){
                   var row = result.rows.item(0);
                 $('#egresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['nombre_subcategoria_egreso']+'</td></tr>')
                 });
