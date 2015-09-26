@@ -13,7 +13,7 @@
         
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Indispensables/Básicos" WHERE id_categoria_egreso=1');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Herramientas Útiles/Secundarios" WHERE id_categoria_egreso=2');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superflujos/Innecesarios" WHERE id_categoria_egreso=3');
+        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superfluos/Innecesarios" WHERE id_categoria_egreso=3');
 
         }, errorCB, successCB);
     }
