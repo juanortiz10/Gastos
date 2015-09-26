@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -30,28 +10,44 @@
         <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
         <title>Pantalla de ajustes</title>
     </head>
-    <body>
+    <body onload="fillSelect();">
         <div class="app" style="background-color: #FDFDCA" >
           <div class="toolbar">
-           	<a href="../index-en.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
-            <a href="../views/four-en.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+           	<a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
+            <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
            	</div>
           <div class="container" id="main">
          <h2 id="title">Settings</h2>
          <div class="table_container">
             <table id="main_table">
-            	<form name="idiomas" action="../views/four.html" method="post">
-                <tr><td class="row" align="center"><label for="usr">Language</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español">Spanish</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles" checked="checked">English</label></br></br><button type="submit" class="btn btn-success" value="Agregar">Change</button></td></tr>
+            	<form name="idioma1" action="../views/four-en.html" method="post">
+                <tr><td class="row" align="center"><label for="usr">Language</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
             	</form>
-            	<form name="regresar" action="../index-en.html" method="post">
-                <td class="row" align="center"><button type="submit" class="btn btn-success"  value="Volver A Inicio">Back</button></td>
-            	</form>
-            
+                <tr>
+                  <td class="row2"><h5 class="name">Add New Account</h5>
+                  <h5 style="text-align:center">Name</h5><input type="text" name="cta" id="nombre_cuenta"></td></tr>
+                <tr>
+                  <td class="row2"><button type="submit" name="button" class="btn btn-success" id="btnAdd" onclick="agregarCuenta();">Add</button></td></tr>
+                <tr>
+                  <td class="row">
+                    <form name="idioma1" action="../views/four-en.html" method="post">
+                    <h5 style="text-align:center; font-weight:bold;">Change Account</h5>
+                    <select id="select_cta" onChange='selectCta();'></select>
+                    <input type="submit" value="Cambiar" id="cambiar_cuenta" class="btn btn-success" style="display:block;margin: 0 auto; "/>
+                    </form>
+                  </td>
+                </tr>
+                <form name="regresar" action="../index.html" method="post">
+                  <tr><td class="row2" align="center"><button type="submit" class="btn btn-success" value="Volver A Inicio">Return</button></td></tr>
+              	</form>
             </table>
+
         </div>
         </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="../js/ken.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
