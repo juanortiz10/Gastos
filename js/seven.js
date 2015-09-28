@@ -9,7 +9,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
        tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
-       tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
+       tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
 
          }, errorCB, successCB);
    }
@@ -115,7 +115,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             }            
           });        
        });
-      //Egresos Categorias
+
        db.transaction(function(tx){
           tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],function(tx,result){
             var idSaldos=[], idCat=[];
@@ -127,7 +127,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
             var uni = idCat.filter(function(elem, index, self) {return index == self.indexOf(elem);});
             for(var a=0; a<uni.length; a++){
                 var val=uni[a];
-                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_subcategoria_egreso= ?',[val],function(tx,result){
+                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_categoria_egreso= ?',[val],function(tx,result){
                   var row = result.rows.item(0);
                 $('#egresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['nombre_subcategoria_egreso']+'</td></tr>')
                 });

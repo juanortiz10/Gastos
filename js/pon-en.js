@@ -13,8 +13,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
        tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
-       tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
-       tx.executeSql("INSERT OR IGNORE INTO cta(id_cuenta_in, nombre, saldo, isActive) values (1,'Yoshi', 0, 1)");
+       tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real)');
+       tx.executeSql("INSERT OR IGNORE INTO cta(id_cuenta_in, nombre, saldo) values (1,'Yoshi', 0)");
    }
 
    //function will be called when an error occurred

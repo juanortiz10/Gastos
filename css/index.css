@@ -150,14 +150,6 @@ td.row2{
     -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
   }
-  .pub{
-    position: fixed;
-    z-index:99999;
-    top: 95%;
-    background: #FFF;
-    width: 100%;
-    left: 5%
-  }
   @media (min-width:1200px) {
     .ingreso{
      height: 250px;
@@ -177,21 +169,17 @@ td.row2{
       padding-top: 0%;
       background-color: #FDFDCA;
     }
-    .nota{
-      font-size: 13px;
-      text-align: center;
-    }
   }
   /*Desktop chico*/
-  @media (max-width: 1199px)  {
+  @media (min-width: 768px) and (max-width: 1199px)  {
     .ingreso{
-     height: 230px;
+     height: 200px;
      width: 200px;
     margin-bottom: 40%;
     font-size: 1.6em;
     }
     .egreso{
-      height: 230px;
+      height: 200px;
       width: 200px;
       font-size: 1.6em;
     }
@@ -199,23 +187,18 @@ td.row2{
       font-size: 1.4em;
       padding: 11%;
       padding-bottom: 0%;
-      padding-top: 5%;
+      padding-top: 10%;
       background-color: #FDFDCA;
-    }
-    .nota{
-      font-size: 11px;
-      text-align: center;
-      margin-bottom: 13%
     }
 
   }
   /*Tablet*/
-  @media (max-width:600px) {
+  @media (max-width:767px) {
     div#main{
       font-size: 1.4em;
       padding: 11%;
       padding-bottom: 0%;
-      padding-top: 3%;
+      padding-top: 25%;
       background-color: #FDFDCA;
     }
     .ingreso{
@@ -229,51 +212,9 @@ td.row2{
       width: 160px;
       font-size: 1.5em;
     }
-    .tabla_principal{
-      font-size: 1em;
-    }
-    .nota{
-      font-size: 9px;
-      text-align: center;
-    }
   }
   /*Smartphone*/
-  @media (max-width:450px) {
-    div#main{
-      font-size: .9em;
-      padding-left: 12%;
-      padding-right: 12%;
-      padding-bottom: 0%;
-      padding-top: 15%;
-      background-color: #FDFDCA;
-    }
-    .ingreso{
-     height: 120px;
-     width: 110px;
-     margin-bottom: 50%;
-     font-size: 1.2em;
-    }
-    .egreso{
-      height: 120px;
-      width: 110px;
-      font-size: 1.2em;
-    }
-    .tabla_principal{
-      font-size: .85em;
-    }
-    .botonera1{
-      font-size: 1em;
-    }
-    .botonera2{
-      font-size: 1em;
-    }
-    .nota{
-      font-size: 6px;
-      text-align: center;
-    }
-  }
-/*Smartphonechico*/
-  @media (max-width:320px) {
+  @media (max-width:480px) {
     div#main{
       font-size: .9em;
       padding-left: 12%;
@@ -283,30 +224,17 @@ td.row2{
       background-color: #FDFDCA;
     }
     .ingreso{
-     height: 120px;
+     height: 140px;
      width: 110px;
      margin-bottom: 50%;
      font-size: 1.1em;
     }
     .egreso{
-      height: 120px;
+      height: 140px;
       width: 110px;
       font-size: 1.1em;
     }
-    .tabla_principal{
-      font-size: .7em;
-    }
-    .botonera1{
-      font-size: .8em;
-    }
-    .botonera2{
-      font-size: .8em;
-    }
-    .nota{
-      font-size: 6px;
-      text-align: center;
-      margin-bottom: 5%;
-    }
+
   }
 
   @media (min-width: 900px) {

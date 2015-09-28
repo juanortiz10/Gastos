@@ -25,7 +25,7 @@
 
           <div id="main" class="container" >
             <div class="row botonera" >
-                  <div class="col-xs-8 tabla_principal" style="margin-top: 15%;">
+                  <div class="col-xs-8" style="margin-top: 15%;">
                     <ul class="no_lista table" onLoad="select(); ">
                       <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; " id="mes">Saldo Del Mes</li>
                       <li class="row2 resultados" id="saldo_m">$0</li>
@@ -39,21 +39,10 @@
                   </div>
                   <div class="col-xs-4" style="margin-top: 15%;">
                     <ul class="no_lista">
-                      <li><button type="button"  class="ingreso" onclick="window.location.href='../www/views/two.html'">
-                        Registrar
-                        Ingreso
-                      </button></li>
-                      <li><button type="button"  class="egreso" value="Egreso" onclick="window.location.href='../www/views/five.html'">
-                        <p>
-                          Registrar
-                          Egreso
-                        </p></button>
-                      </li>
+                      <li><input type="button"  class="ingreso" value="Ingreso" onclick="window.location.href='../www/views/two.html'"></li>
+                      <li><input type="button"  class="egreso" value="Egreso" onclick="window.location.href='../www/views/five.html'"></li>
                     </ul>
                   </div>
-            </div>
-            <div class="nota">
-              *El nivel de Riqueza indica cuantos meses podrias vivir si no tuvieras ingresos y si conservaras tu  mismo nivel de gastos actual
             </div>
             <div class="row botonera">
               <div style=" margin-left:0%; width: 140%; col-xs-12">
