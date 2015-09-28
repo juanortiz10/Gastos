@@ -29,9 +29,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function agregarCuenta(){
   var name=document.getElementById('nombre_cuenta').value;
+  document.getElementById('nombre_cuenta').value = '';
   db.transaction(function(tx){
-    tx.executeSql('INSERT INTO cta (nombre,saldo) VALUES (?,?)',[name,0],redirect);
+    tx.executeSql('INSERT INTO cta (nombre,saldo) VALUES (?,?)',[name,0],successCB);
   });
+
 }
 
 function fillSelect(){
@@ -41,8 +43,12 @@ function fillSelect(){
             var row = result.rows.item(i);
             $('#select_cta').append('<option value="'+row['id_cuenta_in']+'">'+row['nombre']+'</option>');
       }
+
     });
-  });
+  tx.executeSql('SELECT * FROM cta where isActive = 1',[],function(tx,result){
+		document.getElementById("select_cta").value = result.rows.item(0).id_cuenta_in;
+    });
+  });  
 }
 
 function selectCta(){
@@ -51,6 +57,7 @@ function selectCta(){
 		tx.executeSql('UPDATE cta SET isActive = 0',[], successCB, errorCB);
 		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], successCB, errorCB);
   });
+
 }
 
 /*
