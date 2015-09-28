@@ -26,26 +26,26 @@
           <div class="container" id="main">
          <h2 id="title">Ajustes</h2>
          <div class="table_container">
-            <table id="main_table">
+            <table id="main_table" align="center">
             	<form name="idioma1" action="../views/four-en.html" method="post">
                 <tr><td class="row" align="center"><label for="usr">Idioma</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
             	</form>
-                <tr>
-                  <td class="row2"><h5 class="name">Agregar nueva cuenta</h5>
+                <tr align="center">
+                  <td class="row2" align="center"><h5 class="name">Agregar Nueva Cuenta</h5>
                   <h5 style="text-align:center">Nombre</h5><input type="text" name="cta" id="nombre_cuenta"></td></tr>
-                <tr>
-                  <td class="row2"><button type="submit" name="button" class="btn btn-success" id="btnAdd" onclick="agregarCuenta();">Agregar</button></td></tr>
-                <tr>
+                <tr align="center">
+                  <td class="row2" align="center"><button type="submit" name="button" class="btn btn-success" id="btnAdd" onclick="agregarCuenta();">Agregar</button></td></tr>
+                <tr align="center">
                   <td class="row">
-                    <form name="idioma1" action="../views/four-en.html" method="post">
+                    <!--<form name="idioma1" action="../views/four.html" method="post">-->
                     <h5 style="text-align:center; font-weight:bold;">Cambiar de Cuenta</h5>
                     <select id="select_cta"></select>
-                    <input type="submit" value="Cambiar" id="cambiar_cuenta" class="btn btn-success" style="display:block;margin: 0 auto; "/>
-                    </form>
+                    <input type="submit" value="Cambiar" id="cambiar_cuenta" align="center" class="btn btn-success" style="display:block;margin: 0 auto; "/>
+                   <!-- </form>-->
                   </td>
                 </tr>
                 <form name="regresar" action="../index.html" method="post">
-                  <tr><td class="row2" align="center"><button type="submit" class="btn btn-success" value="Volver A Inicio">Regresar</button></td></tr>
+                  <tr align="center"><td class="row2" align="center"><button type="submit" class="btn btn-success" value="Volver A Inicio">Regresar</button></td></tr>
               	</form>
             </table>
 
