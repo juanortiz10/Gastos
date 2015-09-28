@@ -29,9 +29,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function agregarCuenta(){
   var name=document.getElementById('nombre_cuenta').value;
-  db.transaction(function(tx){
+  if (name.length == 0 || name == null) {  
+    navigator.notification.alert("Error",function(){
+      window.location.reload();
+    },"No has agregado nada", "Ok");
+  }
+  else {
+    db.transaction(function(tx){
     tx.executeSql('INSERT INTO cta (nombre,saldo) VALUES (?,?)',[name,0],redirect);
-  });
+    window.location.reload();
+  },errorCB, successCB);
+  }
 }
 
 function fillSelect(){
