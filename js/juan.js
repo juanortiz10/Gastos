@@ -22,7 +22,7 @@
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)')
-        
+
         if(results==null || results==0){
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Sueldo/Salario")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Negocios")');
@@ -30,10 +30,9 @@
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Rentas")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Prestamos")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Dividendos")');
-        tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Domingos")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Mesadas")');
         tx.executeSql('INSERT INTO categorias_ingreso (nombre_categoria_ingreso) VALUES("Otros")')
-        
+
         tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Indispensables/Básicos")');
         tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Herramientas Útiles/Secundarios")');
         tx.executeSql('INSERT INTO categorias_egreso (nombre_categoria_egreso) VALUES("Superfluos/Innecesarios")');
@@ -77,16 +76,15 @@
         tx.executeSql('INSERT INTO subcategorias_egreso (nombre_subcategoria_egreso,id_categoria_egreso) VALUES("Regalos y detalles para terceros",3)')
 
       }
-       
+
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Sueldo/Salario" WHERE id_categoria_ingreso=1');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Negocios" WHERE id_categoria_ingreso=2');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Pensiones" WHERE id_categoria_ingreso=3');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Rentas" WHERE id_categoria_ingreso=4');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Prestamos" WHERE id_categoria_ingreso=5');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Dividendos" WHERE id_categoria_ingreso=6');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Domingos" WHERE id_categoria_ingreso=7');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Mesadas" WHERE id_categoria_ingreso=8');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Otros" WHERE id_categoria_ingreso=9')
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Mesadas" WHERE id_categoria_ingreso=7');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Otros" WHERE id_categoria_ingreso=8')
           }, errorCB, successCB);
     }
 
@@ -137,5 +135,3 @@ function sendId(id_categoria){
   sessionStorage.setItem("id_categoria",id_categoria);
 }
 //Ends Juan Ortiz
-
-

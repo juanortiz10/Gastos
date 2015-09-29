@@ -10,10 +10,10 @@
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
-        
+
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Indispensables/Básicos" WHERE id_categoria_egreso=1');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Herramientas Útiles/Secundarios" WHERE id_categoria_egreso=2');
-        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superflujos/Innecesarios" WHERE id_categoria_egreso=3');
+        tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superfluos/Innecesarios" WHERE id_categoria_egreso=3');
 
         }, errorCB, successCB);
     }

@@ -11,16 +11,15 @@
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
-        
+
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Balance" WHERE id_categoria_ingreso=1');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Business" WHERE id_categoria_ingreso=2');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Pensions" WHERE id_categoria_ingreso=3');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Income" WHERE id_categoria_ingreso=4');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Loans" WHERE id_categoria_ingreso=5');
         tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Dividends" WHERE id_categoria_ingreso=6');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Sundays" WHERE id_categoria_ingreso=7');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Mesadas" WHERE id_categoria_ingreso=8');
-        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Otros" WHERE id_categoria_ingreso=9')
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Allowance" WHERE id_categoria_ingreso=7');
+        tx.executeSql('UPDATE categorias_ingreso SET nombre_categoria_ingreso="Others" WHERE id_categoria_ingreso=8')
 
           }, errorCB, successCB);
     }

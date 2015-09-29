@@ -39,8 +39,12 @@ function fillSelect(){
     tx.executeSql('SELECT * FROM cta',[],function(tx,result){
       for(var i=0; i<result.rows.length; i++){
             var row = result.rows.item(i);
-            $('#select_cta').append('<option value="'+row['nombre']+'">'+row['nombre']+'</option>');
+            $('#select_cta').append('<option value="'+row['id_cuenta_in']+'">'+row['nombre']+'</option>');
       }
+
+    });
+  tx.executeSql('SELECT * FROM cta where isActive = 1',[],function(tx,result){
+		document.getElementById("select_cta").value = result.rows.item(0).id_cuenta_in;
     });
   });
 }
@@ -49,7 +53,7 @@ function selectCta(){
 	var cta = document.getElementById("select_cta").value;
 	 db.transaction(function(tx){
 		tx.executeSql('UPDATE cta SET isActive = 0',[], successCB, errorCB);
-		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], successCB, errorCB);
+		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], redirect, errorCB);
   });
 }
 /*
