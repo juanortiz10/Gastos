@@ -29,17 +29,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function agregarCuenta(){
   var name=document.getElementById('nombre_cuenta').value;
-  if (name.length == 0 || name == null) {  
-    navigator.notification.alert("Error",function(){
-      window.location.reload();
-    },"No has agregado nada", "Ok");
-  }
-  else {
-    db.transaction(function(tx){
-    tx.executeSql('INSERT INTO cta (nombre,saldo, isActive) VALUES (?,?,?)',[name,0,0],redirect);
-    window.location.reload();
-  },errorCB, successCB);
-  }
+  db.transaction(function(tx){
+    tx.executeSql('INSERT INTO cta (nombre,saldo) VALUES (?,?)',[name,0],redirect);
+  });
 }
 
 function fillSelect(){
@@ -50,18 +42,15 @@ function fillSelect(){
             $('#select_cta').append('<option value="'+row['nombre']+'">'+row['nombre']+'</option>');
       }
     });
-    tx.executeSql('SELECT * FROM cta where isActive = 1',[],function(tx,result){
-            document.getElementById("select_cta").value = result.rows.item(0).id_cuenta_in;
-    });
   });
 }
 
 function selectCta(){
-    var cta = document.getElementById('select_cta').value;
-    db.transaction(function(tx){
-            tx.executeSql('UPDATE cta SET isActive = 0',[], successCB, errorCB);
-            tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], successCB, errorCB);
-    });
+	var cta = document.getElementById("select_cta").value;
+	 db.transaction(function(tx){
+		tx.executeSql('UPDATE cta SET isActive = 0',[], successCB, errorCB);
+		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], successCB, errorCB);
+  });
 }
 /*
   function checarCuenta(){
