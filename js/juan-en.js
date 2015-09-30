@@ -51,12 +51,12 @@
           var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
 
          navigator.notification.prompt(
-        'Introduce el nombre de la categoria',
+        'Type the category name',
         function(results){
             if (results.buttonIndex == 1){
                 nombre=results.input1;
                 if(nombre==null || nombre.length==0){
-                     navigator.notification.alert("Error",function(){window.location.reload();},"No has agregado nada", "Ok");
+                     navigator.notification.alert("Error",function(){window.location.reload();},"Error,Empty Field", "Ok");
                  }else{
                 dba.transaction(function(tx){
                     tx.executeSql('INSERT INTO categorias_ingreso(nombre_categoria_ingreso) VALUES("'+nombre+'") ');
@@ -64,7 +64,7 @@
                 }, errorCB, successCB);
               }
             }
-        }, 'Categorias', ['Ok','Cancelar']);
+        }, 'Categories', ['Ok','Cancel']);
   }//Termina agregar categoria ingreso
 
 function sendId(id_categoria){
