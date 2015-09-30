@@ -31,15 +31,18 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //El reven starts checale lo que hice mero arriba, si no en el main .js
 function insertarIngresos(id){
   var saldo_agregar = document.getElementById('saldo_agregar').value;
-  var id_cuenta;
+
     var dba = window.openDatabase("gastos", "1.0", "local database", 200000);
     dba.transaction(function(tx) {
+
         tx.executeSql("SELECT * FROM cta WHERE isActive=1",[],function(tx,result){
+          var id_cuenta;
           id_cuenta= result.rows.item(0).id_cuenta_in;
+          console.log("--------------------------------"+id_cuenta);
+          tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso, id_cuenta_in) VALUES (?,?,?)",[saldo_agregar, id, id_cuenta], successCB, errorCB);
+          tx.executeSql("UPDATE cta SET saldo = saldo +  ? where isActive=1",[saldo_agregar], successCB, errorCB);
+          getSaldo();
         });
-        tx.executeSql("INSERT INTO saldos_ingreso(monto_ingresado, id_categoria_ingreso, id_cuenta_in) VALUES (?,?,?)",[saldo_agregar, id, id_cuenta], successCB, errorCB);
-        tx.executeSql("UPDATE cta SET saldo = saldo +  ? where isActive=1",[saldo_agregar], successCB, errorCB);
-        getSaldo();
     });
 }
 
@@ -73,10 +76,10 @@ function insertarEgresos(id) {
     dba.transaction(function(tx) {
         tx.executeSql("SELECT * FROM cta WHERE isActive=1",[],function(tx,result){
           id_cuenta= result.rows.item(0).id_cuenta_in;
+          tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_subcategoria_egreso, id_cuenta_in) VALUES (?,?,?)",[saldo_agregar, id,id_cuenta], successCB, errorCB);
+          tx.executeSql("UPDATE cta SET saldo = saldo -  ? where isActive = 1",[saldo_agregar], successCB, errorCB);
+          getSaldo();
         });
-        tx.executeSql("INSERT INTO saldos_egreso(monto_egresado, id_subcategoria_egreso, id_cuenta_in) VALUES (?,?,?)",[saldo_agregar, id,id_cuenta], successCB, errorCB);
-        tx.executeSql("UPDATE cta SET saldo = saldo -  ? where id_cuenta_in = 1",[saldo_agregar], successCB, errorCB);
-        getSaldo();
     });
 }
 
