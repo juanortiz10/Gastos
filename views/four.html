@@ -27,8 +27,13 @@
          <h2 id="title">Ajustes</h2>
          <div class="table_container">
             <table id="main_table" align="center">
-            	<form name="idioma1" action="../views/four-en.html" method="post">
-                <tr><td class="row" align="center"><label for="usr">Idioma</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
+            	<form name="idioma1" action="../index-en.html" method="post">
+                <tr><td class="row" align="center">
+                  <label for="usr">Idioma</label><br />
+                  <label class="checkbox-inline">
+                    <input type="radio" name="idioma" value="Español" checked="checked">Español</label>
+                    <label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label>
+                    </br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
             	</form>
                 <tr align="center">
                   <td class="row2" align="center"><h5 class="name">Agregar Nueva Cuenta</h5>
@@ -39,8 +44,8 @@
                   <td class="row">
                     <!--<form name="idioma1" action="../views/four.html" method="post">-->
                     <h5 style="text-align:center; font-weight:bold;">Cambiar de Cuenta</h5>
-                    <select id="select_cta" onChange='selectCta();'></select>
-                    <input type="submit" value="Cambiar" id="cambiar_cuenta" align="center" class="btn btn-success" style="display:block;margin: 0 auto; "/>
+                    <select id="select_cta"></select>
+                    <input type="submit" value="Cambiar" id="cambiar_cuenta" align="center" class="btn btn-success" style="display:block;margin: 0 auto; " onclick="selectCta();"/>
                    <!-- </form>-->
                   </td>
                 </tr>

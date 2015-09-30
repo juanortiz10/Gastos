@@ -27,8 +27,11 @@
          <h2 id="title">Settings</h2>
          <div class="table_container">
             <table id="main_table">
-            	<form name="idioma1" action="../views/four-en.html" method="post">
-                <tr><td class="row" align="center"><label for="usr">Language</label><br /><label class="checkbox-inline"><input type="radio" name="idioma" value="Español" checked="checked">Español</label><label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label></br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
+            	<form name="idioma1" action="../index.html" method="post">
+                <tr><td class="row" align="center"><label for="usr">Language</label><br />
+                  <label class="checkbox-inline"><input type="radio" name="idioma" value="Español">Español</label>
+                  <label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles" checked="checked">English</label></br></br>
+                  <button type="submit" class="btn btn-success" onclick="cambiaIdioma()">Change</button></td></tr>
             	</form>
 
             	<tr align="center">
@@ -40,14 +43,14 @@
                   <td class="row" align="center">
                     <!--<form name="idioma1" action="../views/four.html" method="post">-->
                     <h5 style="text-align:center; font-weight:bold;">Account Change</h5>
-                    <select id="select_cta" onChange='selectCta();'></select>
-                    <input type="submit" value="Cambiar" id="cambiar_cuenta" class="btn btn-success" style="display:block;margin: 0 auto; "/>
+                    <select id="select_cta"></select>
+                    <input type="submit" value="Change" id="cambiar_cuenta" class="btn btn-success" style="display:block;margin: 0 auto; " onclick="selectCta();"/>
                     </form>
                   </td>
                 </tr>
 
             	<form name="regresar" action="../index-en.html" method="post">
-                <td class="row" align="center"><button type="submit" class="btn btn-success"  value="Volver A Inicio">Back</button></td>
+                <td class="row" align="center"><button type="submit" class="btn btn-success">Back</button></td>
             	</form>
 
             </table>

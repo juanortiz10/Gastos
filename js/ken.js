@@ -10,8 +10,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
        tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
        tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text )');
        tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
-       tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
-       tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
+       tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer, id_cuenta_in integer)');
+       tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer,  id_cuenta_in integer)');
        tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
    }
 
@@ -39,9 +39,12 @@ function fillSelect(){
     tx.executeSql('SELECT * FROM cta',[],function(tx,result){
       for(var i=0; i<result.rows.length; i++){
             var row = result.rows.item(i);
-            $('#select_cta').append('<option value="'+row['nombre']+'">'+row['nombre']+'</option>');
+            $('#select_cta').append('<option value="'+row['id_cuenta_in']+'">'+row['nombre']+'</option>');
       }
     });
+    tx.executeSql('SELECT * FROM cta where isActive = 1',[],function(tx,result){
+        document.getElementById("select_cta").value = result.rows.item(0).id_cuenta_in;
+  });
   });
 }
 
@@ -49,7 +52,7 @@ function selectCta(){
 	var cta = document.getElementById("select_cta").value;
 	 db.transaction(function(tx){
 		tx.executeSql('UPDATE cta SET isActive = 0',[], successCB, errorCB);
-		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], successCB, errorCB);
+		tx.executeSql('UPDATE cta SET isActive = 1 where id_cuenta_in = ?',[cta], redirect, errorCB);
   });
 }
 /*

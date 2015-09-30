@@ -6,11 +6,11 @@
         tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
         tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  )');
         tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
-        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer)');
-        tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer)');
+        tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer, id_cuenta_in integer)');
+        tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer,  id_cuenta_in integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
-        
-        
+
+
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Ahorros para Invertir" WHERE id_subcategoria_egreso=1');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Alimentos" WHERE id_subcategoria_egreso=2');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Despensa" WHERE id_subcategoria_egreso=3');
@@ -24,7 +24,7 @@
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Tarjeta de Crédito 1" WHERE id_subcategoria_egreso=10');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Tarjeta de Crédito 2" WHERE id_subcategoria_egreso=11');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Transporte Público" WHERE id_subcategoria_egreso=12');
-        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Mantenimiento Auto" WHERE id_subcategoria_egreso=13'); 
+        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Mantenimiento Auto" WHERE id_subcategoria_egreso=13');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Refacciones Auto" WHERE id_subcategoria_egreso=14');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Seguro del Auto" WHERE id_subcategoria_egreso=15');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Gasolina del Auto" WHERE id_subcategoria_egreso=16');
