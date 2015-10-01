@@ -5,7 +5,7 @@
         db.transaction(function populateDB(tx){
         tx.executeSql('Create Table IF NOT EXISTS categorias_ingreso(id_categoria_ingreso integer primary key, nombre_categoria_ingreso text )');
         tx.executeSql('Create Table IF NOT EXISTS categorias_egreso(id_categoria_egreso integer primary key, nombre_categoria_egreso text  )');
-        tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso)');
+        tx.executeSql('Create Table IF NOT EXISTS subcategorias_egreso(id_subcategoria_egreso integer primary key, nombre_subcategoria_egreso, id_categoria_egreso integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_ingreso(id_saldo_ingreso integer primary key, fecha_ingreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_ingresado real, id_categoria_ingreso integer, id_cuenta_in integer)');
         tx.executeSql('Create Table IF NOT EXISTS saldos_egreso(id_saldo_egreso integer primary key, fecha_egreso TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, monto_egresado real, id_subcategoria_egreso integer,  id_cuenta_in integer)');
         tx.executeSql('Create Table IF NOT EXISTS cta(id_cuenta_in integer primary key, nombre text, saldo real, isActive integer)');
@@ -45,9 +45,9 @@
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Espectáculos" WHERE id_subcategoria_egreso=30');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Otras Salidas Sociales" WHERE id_subcategoria_egreso=31');
         tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Antojos de la Tiendita" WHERE id_subcategoria_egreso=32');
-        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Clothes & Luxury Accessories" WHERE id_subcategoria_egreso=33');
-        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Travel Budget" WHERE id_subcategoria_egreso=34');
-        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Gifts and others" WHERE id_subcategoria_egreso=35  ');
+        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Ropa y Accesorios Lujosos" WHERE id_subcategoria_egreso=33');
+        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Presupuesto para Viajes" WHERE id_subcategoria_egreso=34');
+        tx.executeSql('UPDATE subcategorias_egreso SET nombre_subcategoria_egreso="Regalos y otros" WHERE id_subcategoria_egreso=35  ');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Indispensables/Básicos" WHERE id_categoria_egreso=1');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Herramientas Útiles/Secundarios" WHERE id_categoria_egreso=2');
         tx.executeSql('UPDATE categorias_egreso SET nombre_categoria_egreso="Superfluos/Innecesarios" WHERE id_categoria_egreso=3')
@@ -90,9 +90,9 @@
                      navigator.notification.alert("Error",function(){window.location.reload();},"No has agregado nada", "Ok");
                  }else{
                 dba.transaction(function(tx){
-                    tx.executeSql('INSERT INTO subcategorias_egreso(nombre_subcategoria_egreso) VALUES("'+nombre+'") ');
+                    tx.executeSql('INSERT INTO subcategorias_egreso(nombre_subcategoria_egreso, id_categoria_egreso) VALUES("'+nombre+'","'+Number(sessionStorage.getItem('id_categoria'))+'")');
                     window.location.reload();
-                }, errorCB, successCB);
+                });
               }
             }
         }, 'Sub-Categorias', ['Ok','Cancelar']);

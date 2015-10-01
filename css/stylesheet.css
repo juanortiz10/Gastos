@@ -261,3 +261,13 @@ tr.resumeRed{
           width: 22%;
         }
        }
+       @media (min-width:200px) {
+           table.main_table2{
+           width: 20%;
+           font-size: 0.6em;
+        }
+
+        table.main_table3{
+          width: 20%;
+        }
+       }

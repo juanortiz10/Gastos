@@ -51,7 +51,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
         });
        //SELECCIONAR INGRESOS MENSUALES
        db.transaction(function(tx){
-        var counter=0;            
+        var counter=0;
           tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%m", saldos_ingreso.fecha_ingreso) = ? ', [mm],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
@@ -117,7 +117,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
        db.transaction(function(tx){
           tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],function(tx,result){
-            var idSaldos=[], idCat=[];
+          var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
             idSaldos.push(row['id_saldo_egreso']);
@@ -126,7 +126,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
             var uni = idCat.filter(function(elem, index, self) {return index == self.indexOf(elem);});
             for(var a=0; a<uni.length; a++){
                 var val=uni[a];
-                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_categoria_egreso= ?',[val],function(tx,result){
+                tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_subcategoria_egreso= ?',[val],function(tx,result){
+                  console.log(result.rows.length);
                   var row = result.rows.item(0);
                 $('#egresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['nombre_subcategoria_egreso']+'</td></tr>')
                 });
@@ -202,64 +203,3 @@ document.addEventListener("deviceready", onDeviceReady, false);
          });
       });
    }
-
-//Inician metodos para ingresos
-   function ingresosCategoria(tx,result){
-     for (var i = 0; i < result.rows.length; i++) {
-       var row = result.rows.item(i);
-      $('#ingresos_categoria').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['nombre_categoria_ingreso']+'</td></tr>');
-     }
-   }
-   function ingresosMensual(tx,result){
-     for (var i = 0; i < result.rows.length; i++) {
-       var row = result.rows.item(i);
-      $('#ingresos_mensuales').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['monto_ingresado']+'</td></tr>');
-     }
-   }
-
-   function ingresosAnual(tx,result){
-     for (var i = 0; i < result.rows.length; i++) {
-       var row = result.rows.item(i);
-      $('#ingresos_anuales').append('<tr><td class="cuentas" style="border: 2px solid #87E075">'+row['monto_ingresado']+'</td></tr>');
-     }
-   }
-
-   function ingresosAcumulado(tx,result){
-    for(var i = 0; i < result.rows.length; i++){
-      var row = result.rows.item(i);
-      $('#ingresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #87E075" >'+row['monto_ingresado']+'</td></tr>');
-    }
-   }
-
-//Inician metodos para egresos
-function egresosCategoria(tx,result){
-  for (var i = 0; i < result.rows.length; i++) {
-    var row = result.rows.item(i);
-   $('#egresos_categoria').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['nombre_subcategoria_egreso']+'</td></tr>');
-  }
-}
-
-function setValue(unique){
-  db.transaction(function fill(tx){
-    for(var a=0; a<unique.length; a++){
-      var val=unique[a];
-      tx.executeSql('SELECT SUM(monto_egresado) AS egreso FROM saldos_egreso WHERE id_subcategoria_egreso= ?',[val],function(tx,result){
-      $('#egresos_mensuales').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+res.rows.item(0)+'</td></tr>')
-      },errorCB);
-    }
-}, errorCB, function(){console.log("Good")});
-}
-
-function egresosAnual(tx,result){
-  for (var i = 0; i < result.rows.length; i++) {
-    var row = result.rows.item(i);
-   $('#egresos_anuales').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['monto_egresado']+'</td></tr>');
-  }
-}
-
-function egresosAcumulado(tx,result){
-    for(var i = 0; i < result.rows.length; i++){
-      var row = result.rows.item(i);
-      $('#egresos_acum').append('<tr><td class="cuentas" style="border: 4px solid #E37474" >'+row['monto_egresado']+'</td></tr>');
-    }
-}
