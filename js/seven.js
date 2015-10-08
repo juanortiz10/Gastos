@@ -28,11 +28,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
      var hoy = new Date();
      var mm = hoy.getMonth()+1;
      if (mm<10) mm = '0' + mm;
+     else mm= String(mm);
+
       var yy = (hoy.getFullYear()).toString();
 
        //SELECCIONAR CATEGORIAS INGRESO
         db.transaction(function(tx){
-          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso', [],function(tx,result){
+          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE  saldos_ingreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
@@ -51,8 +53,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
         });
        //SELECCIONAR INGRESOS MENSUALES
        db.transaction(function(tx){
-        var counter=0;
-          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%m", saldos_ingreso.fecha_ingreso) = ? ', [mm],function(tx,result){
+        var counter=0;            
+          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%m", saldos_ingreso.fecha_ingreso) = ?  AND saldos_ingreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [mm],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
@@ -73,7 +75,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       //Seleccionar Ingresos ANUALES
        db.transaction(function(tx){
           var counter=0;
-          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%Y", saldos_ingreso.fecha_ingreso) = ? ', [yy],function(tx,result){
+          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE strftime("%Y", saldos_ingreso.fecha_ingreso) = ? AND saldos_ingreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1) ', [yy],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
@@ -95,7 +97,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       //Acumulado ingreso
        db.transaction(function(tx){
           var counter=0;
-          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso', [],function(tx,result){
+          tx.executeSql('SELECT * FROM categorias_ingreso INNER JOIN saldos_ingreso ON categorias_ingreso.id_categoria_ingreso=saldos_ingreso.id_categoria_ingreso WHERE saldos_ingreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [],function(tx,result){
             var idSaldos=[], idCat=[];
             for (var i = 0; i < result.rows.length; i++) {
               var row = result.rows.item(i);
@@ -116,14 +118,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
        });
 
        db.transaction(function(tx){
-          tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso', [],function(tx,result){
+          tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE  saldos_egreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
             idSaldos.push(row['id_saldo_egreso']);
             idCat.push(row['id_subcategoria_egreso']);
           }
-            var uni = idCat.filter(function(elem, index, self) {return index == self.indexOf(elem);});
+            var uni = idCat.filter(function(elem, index, self) {return index == self.indexOf(elem);});            
             for(var a=0; a<uni.length; a++){
                 var val=uni[a];
                 tx.executeSql('SELECT nombre_subcategoria_egreso FROM subcategorias_egreso WHERE id_subcategoria_egreso= ?',[val],function(tx,result){
@@ -138,7 +140,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
        //Seleccionar EGRESOS MENSUALES
        db.transaction(function(tx) {
         var counter=0;
-         tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? ', [mm],function(tx,result){
+         tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%m", saldos_egreso.fecha_egreso) = ? AND saldos_egreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [mm],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
@@ -161,7 +163,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       //Seleccionr EGRESOS ANUALES
       db.transaction(function(tx){
         var counter=0;
-        tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ? ', [yy],function(tx,result){
+        tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE strftime("%Y", saldos_egreso.fecha_egreso) = ?  AND saldos_egreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1)', [yy],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);
@@ -183,7 +185,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
       //Acumulado EGRESOS
       db.transaction(function(tx){
         var counter=0;
-         tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso ', [],function(tx,result){
+         tx.executeSql('SELECT * FROM subcategorias_egreso INNER JOIN saldos_egreso ON subcategorias_egreso.id_subcategoria_egreso=saldos_egreso.id_subcategoria_egreso WHERE saldos_egreso.id_cuenta_in = (SELECT id_cuenta_in FROM cta WHERE isActive=1) ', [],function(tx,result){
           var idSaldos=[], idCat=[];
           for (var i = 0; i < result.rows.length; i++) {
             var row = result.rows.item(i);

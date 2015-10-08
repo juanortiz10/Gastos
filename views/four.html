@@ -11,13 +11,13 @@
         <script type="text/javascript" src="../cordova.js"></script>
         <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
         <script type="text/javascript" src="../js/ken.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
         <title>Pantalla de ajustes</title>
     </head>
-    <body onload="fillSelect();">
+    <body onload="fillSelect(); loadName();">
         <div class="app" style="background-color: #FDFDCA" >
           <div class="toolbar">
            	<a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
@@ -41,13 +41,24 @@
                 <tr align="center">
                   <td class="row2" align="center"><button type="submit" name="button" class="btn btn-success" id="btnAdd" onclick="agregarCuenta();">Agregar</button></td></tr>
                 <tr align="center">
-                  <td class="row">
+                  <td class="row2">
                     <!--<form action="../views/four.html" method="post">-->
                     <h5 style="text-align:center; font-weight:bold;">Cambiar de Cuenta</h5>
                     <select id="select_cta"></select>
 
                     <input type="submit" value="Cambiar" id="cambiar_cuenta" align="center" class="btn btn-success" style="display:block;margin: 0 auto; " onclick="selectCta();"/>
                    <!-- </form>-->
+                  </td>
+                </tr>
+                 <tr>
+                  <td class="row"><h5 style="text-align:center; font-weight: bold;">Acciones</h5>
+                    <label class="check-edit">Habilitar<input type="radio" name="enable" value="valido" onclick="setEnabled();"></label>
+                    <input type="text" id="et" style="display:block; margin: 0 auto;" disabled > </br>
+                    <div style="text-align:center">
+                      <button id="editar" class="btn btn-success" onclick="edit();">Editar</button>
+                      <button id="eliminar" class="btn btn-success" onclick="delet3();">Eliminar</button>
+                      <p id="message">*Despues de eliminar una cuenta, vuelve a seleccionar la cuenta que quieres tener activa</p>
+                    </div>
                   </td>
                 </tr>
                 <form name="regresar" action="../index.html" method="post">

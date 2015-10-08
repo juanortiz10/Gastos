@@ -51,6 +51,16 @@
                     </form>
                   </td>
                 </tr>
+                  <td class="row"><h5 style="text-align:center; font-weight: bold;">Actions</h5>
+                    <label class="check-edit">Enable<input type="radio" name="enable" value="valido" onclick="setEnabled();"></label> 
+                    <input type="text" id="et" style="display:block; margin: 0 auto;" disabled > </br>
+                    <div style="text-align:center">
+                      <button id="editar" class="btn btn-success" onclick="edit();">Editar</button>
+                      <button id="eliminar" class="btn btn-success" onclick="delet3();">Eliminar</button>
+                      <p id="message">*After removing an account , reselect the account you want to have active</p>
+                    </div>
+                  </td>
+                </tr>
 
             	<form name="regresar" action="../index-en.html" method="post">
                 <td class="row" align="center"><button type="submit" class="btn btn-success">Back</button></td>

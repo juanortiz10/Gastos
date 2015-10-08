@@ -154,7 +154,6 @@ td.row2{
     position: fixed;
     z-index:99999;
     top: 95%;
-    background: #FFF;
     width: 100%;
     left: 5%
   }

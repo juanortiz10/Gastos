@@ -98,14 +98,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
              promedio = res.rows.item(0).promedio;
              console.log("Promedio de egresos para nivel de riqueza: "+ promedio);
              if (promedio != 0) {
-               nr = patrimonio/promedio;
+               if((promedio == Number.NaN) || (promedio == null)){nr = "0";}else{nr = patrimonio/promedio;}
+
                document.getElementById('nivel_riqueza').innerHTML = nr.toFixed(1);
              }else {
                nr = "0";
                document.getElementById('nivel_riqueza').innerHTML = nr;
              }
              console.log(nr);
-           })
+           });
          });
        });
      });

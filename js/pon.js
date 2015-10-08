@@ -4,7 +4,29 @@
     //function will be called when device ready
     function onDeviceReady(){
         db.transaction(populateDB, errorCB, successCB);
+        var admobid = {};
+      if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
+          admobid = {
+              banner: 'ca-app-pub-7530815696728714/7529730588', // or DFP format "/6253334/dfp_example_ad"
+              interstitial: ''
+          };
+      } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+          admobid = {
+              banner: '', // or DFP format "/6253334/dfp_example_ad"
+              interstitial: ''
+          };
+      } else { // for windows phone
+          admobid = {
+              banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
+              interstitial: 'ca-app-pub-xxx/kkk'
+          };
+      }
+      if(AdMob) AdMob.createBanner( {
+        adId: admobid.banner,
+        position: AdMob.AD_POSITION.BOTTOM_CENTER,
+        autoShow: true } );
     }
+
 
     //create table and insert some record
     function populateDB(tx) {

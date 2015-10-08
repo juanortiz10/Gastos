@@ -54,6 +54,12 @@ h5.name{
     font-weight: bold;
 }
 
+label.check-edit{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: normal;
+}
 img#settings{
   float: right;
   width: 34px;
@@ -86,6 +92,10 @@ select#select_cta{
   padding: 5px;
 }
 
+p#message{
+  font-size: 0.6em;
+  margin-top: 2px;
+}
 table#main_table{
   -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
@@ -264,7 +274,7 @@ tr.resumeRed{
        @media (min-width:200px) {
            table.main_table2{
            width: 20%;
-           font-size: 0.6em;
+           font-size: 0.7em;
         }
 
         table.main_table3{
