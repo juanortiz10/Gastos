@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <title>Pantalla de inicio</title>
+       <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/pon-en.js"></script>
+        <script type="text/javascript" src="js/admob.js"></script>
+      <!--  <script type="text/javascript" src="js/juan-en.js"></script>
+        <script type="text/javascript" src="js/juan2-en.js"></script>-->
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </head>
+    <body>
+        <div class="app">
+          <div class="toolbar">
+            <a href="../www/views/four-en.html"><img src="icons/settings.png" alt="settings" id="settings"/></a>
+            <a href="#"><img src="icons/logo.png" alt="logo" id="logo" /></a>
+            </div>
+
+          <div id="main" class="container">
+            <div class="row botonera">
+                  <div class="col-xs-8 tabla_principal" style="margin-top: 15%;">
+                    <ul class="no_lista table" onLoad="select();">
+                      <li class="row2"  style="background-color: #F6F6F6;  padding: 6%; " id="month">Balance Of  The Month</li>
+                      <li class="row2 resultados" id="saldo_m">$0</li>
+                      <li style="background-color: #F6F6F6; padding: 6%;" id="year">Accumulated Balance Of The Year</li>
+                      <li class="resultados" id="saldo_aca">$0</li>
+                      <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Accumulated Heritage</li>
+                      <li class="row2 resultados" id="patrimonio">$0</li>
+                      <li class="row2"  style="background-color: #F6F6F6; padding: 6%;">Wealth Level (In Months)</li>
+                      <li class="row2 resultados" id="nivel_riqueza">0</li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-4" style="margin-top: 15%;">
+                    <ul class="no_lista">
+                       <li><button type="button"  class="ingreso" value="Entry" onclick="window.location.href='../www/views/two-en.html'">
+                          Enter
+                          Income
+                        </button></li>
+                        <li><button type="button"  class="egreso" value="Egress" onclick="window.location.href='../www/views/five-en.html'">
+                          Enter
+                          Egress
+                        </button></li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="nota">
+              *The level of wealth indicates how  many months could you live  without any income and your  current spending level
+            </div>
+            <div class="row botonera">
+              <div style=" margin-left:0%; width: 140%; col-xs-12" >
+                <ul class="no_lista inline-block">
+                  <li class="col-xs-7 botonera1" ><a href="../www/views/seven-en.html">Summary</a></li>
+                  <li class="col-xs-5 botonera2" ><a href="../www/views/four-en.html">Settings</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row pub">
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

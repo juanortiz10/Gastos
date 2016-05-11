@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" type="text/css" href="../css/stylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
+        <script type="text/javascript" src="../cordova.js"></script>
+        <script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="../js/ken.js"></script>
+        <script type="text/javascript" src="../js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <title>Pantalla de ajustes</title>
+    </head>
+    <body onload="fillSelect(); loadName();">
+        <div class="app" style="background-color: #FDFDCA" >
+          <div class="toolbar">
+           	<a href="../index.html"><img src="../icons/logo.png" alt="set" id="logo"/></a>
+            <a href="../views/four.html"><img src="../icons/settings.png" alt="set" id="settings" /></a>
+           	</div>
+          <div class="container" id="main">
+         <h2 id="title">Ajustes</h2>
+         <div class="table_container">
+            <table id="main_table" align="center">
+            	<form name="idioma1" action="../index-en.html" method="post">
+                <tr><td class="row" align="center">
+                  <label for="usr">Idioma</label><br />
+                  <label class="checkbox-inline">
+                    <input type="radio" name="idioma" value="Español" checked="checked">Español</label>
+                    <label class="checkbox-inline"><input type="radio" name="idioma" value="Ingles">Ingles</label>
+                    </br></br><button type="submit" class="btn btn-success" value="Cambiar" onclick="cambiaIdioma()">Cambiar</button></td></tr>
+            	</form>
+                <tr align="center">
+                  <td class="row2" align="center"><h5 class="name">Agregar Nueva Cuenta</h5>
+                  <h5 style="text-align:center">Nombre</h5><input type="text" name="cta" id="nombre_cuenta"></td></tr>
+                <tr align="center">
+                  <td class="row2" align="center"><button type="submit" name="button" class="btn btn-success" id="btnAdd" onclick="agregarCuenta();">Agregar</button></td></tr>
+                <tr align="center">
+                  <td class="row2">
+                    <!--<form action="../views/four.html" method="post">-->
+                    <h5 style="text-align:center; font-weight:bold;">Cambiar de Cuenta</h5>
+                    <select id="select_cta"></select>
+
+                    <input type="submit" value="Cambiar" id="cambiar_cuenta" align="center" class="btn btn-success" style="display:block;margin: 0 auto; " onclick="selectCta();"/>
+                   <!-- </form>-->
+                  </td>
+                </tr>
+                 <tr>
+                  <td class="row"><h5 style="text-align:center; font-weight: bold;">Acciones</h5>
+                    <label class="check-edit">Habilitar<input type="radio" name="enable" value="valido" onclick="setEnabled();"></label>
+                    <input type="text" id="et" style="display:block; margin: 0 auto;" disabled > </br>
+                    <div style="text-align:center">
+                      <button id="editar" class="btn btn-success" onclick="edit();">Editar</button>
+                      <button id="eliminar" class="btn btn-success" onclick="delet3();">Eliminar</button>
+                      <p id="message">*Despues de eliminar una cuenta, vuelve a seleccionar la cuenta que quieres tener activa</p>
+                    </div>
+                  </td>
+                </tr>
+                <form name="regresar" action="../index.html" method="post">
+                  <tr align="center"><td class="row2" align="center"><button type="submit" class="btn btn-success" value="Volver A Inicio">Regresar</button></td></tr>
+              	</form>
+            </table>
+
+        </div>
+        </div>
+        </div>
+    </body>
+</html>
